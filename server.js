@@ -78,7 +78,7 @@ app.get("/api/companies", function (req, res) {
     }
   );
 });
-// get contacts by company name
+// get contacts by company name hdajdajdja
 app.get("/api/companycontacts", function (req, res) {
   console.log(
     "server token is" + JSON.parse(JSON.stringify(req.query.companyid))
