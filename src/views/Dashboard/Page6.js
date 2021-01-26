@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 
  class Page6 extends Component {
+    continue = (e) => {
+        e.preventDefault();
+        this.props.nextStep();
+      };
     
+      back = (e) => {
+        e.preventDefault();
+        this.props.prevStep();
+      };
     render() {
         return (
             
@@ -24,6 +32,12 @@ import React, { Component } from "react";
                     </td>
 
                 </table>
+                <button type="button" className="btn btn-warning" onClick={this.back}>
+          « Back
+        </button>
+        <button type="button" className="btn btn-success" onClick={this.continue}>
+          Next »
+        </button>
              </div>
         )
      }

@@ -163,23 +163,36 @@ export default class Dashboard extends Component {
       );
     if (step === 5)
       return <Page4 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 6) return <Page5 />;
-
-    if (step === 7) return <Page6 />;
-
-    if (step === 8) return <Page7 />;
-    if (step === 9) return <Page8 />;
-    if (step === 10) return <Page9 />;
-    if (step === 11) return <Page10 />;
-    if (step === 12) return <Page11 />;
-    if (step === 13) return <Page12 />;
-    if (step === 14) return <Page13 />;
-    if (step === 15) return <Page14 />;
-    if (step === 16) return <Page15 />;
-    if (step === 17) return <Page16 />;
-    if (step === 18) return <Page17 />;
-    if (step === 19) return <Page18 />;
-    if (step === 20) return <Page19 />;
+    if (step === 6)
+     return <Page5 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 7) 
+    return <Page6 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 8) 
+    return <Page7 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 9) 
+    return <Page8 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 10) 
+    return <Page9 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 11)
+     return <Page10 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 12) 
+    return <Page11 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 13) 
+    return <Page12 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 14) 
+    return <Page13 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 15) 
+    return <Page14 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 16)
+    return <Page15 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 17) 
+    return <Page16 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 18) 
+    return <Page17 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 19)
+     return <Page18 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 20) 
+    return <Page19 prevStep={this.prevStep} nextStep={this.nextStep} />;
   };
   componentDidMount() {
     // const query = new URLSearchParams(this.props.location.search);
