@@ -18,29 +18,19 @@ class Page13 extends Component {
                 <h1>
                    Das ist aber teuer... / oder andere Einwände
                 </h1>
-                <p1>"Diese erste Einschätzung ist erstmal ein geschätzter Preisrahmen. In welchem Bereich
-                    des eben genannten Rahmens, sehen Sie sich denn?"
-                </p1>
+                <Form.Label>
+            {" "}
+        Diese erste Einschätzung ist erstmal ein geschätzter Preisrahmen. In welchem Bereich des eben genannten
+        Rahmens, sehen Sie sich denn?
+        </Form.Label>
+        <Form.Control>
+            <option value="">Auswählen</option>
+            <option value="">Bei Nennung der Summe<button type="button">go to Page 12</button></option>
+            <option value="">Nein, eigentlich ungern<button type="button">go to Page 14</button></option>
+            
+        </Form.Control>
                 
-                <table>
-                    <td>
-                        <p1>
-                            1.1 Bei Nennung der Summe
-                            <button type="button">go to Page 12</button>
-                            
-                        </p1>
-                    </td>
-                    <td>
-                            <p2>2. Nein, eigentlich ungern
-                                <button type="button">go to Page 14</button>
-                            </p2>
-                    </td>
-                   
-
-
-
-                    
-                </table>
+                
                 <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back
         </button>

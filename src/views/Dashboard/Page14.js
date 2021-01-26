@@ -18,29 +18,19 @@ class Page14 extends Component {
                 <h1>
                     Wenn dies nicht möglich ist, dann:
                 </h1>
-                <p1>"Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an, die bei einer
-                    Investitionssumme von 2.900 EUR liegt, ist das für Sie möglich?
-                </p1>
+                <Form.Label>
+            {" "}
+       "Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an, die bei einer Investitionssumme
+       von 2.900 EUR liegt, Ist das für Sie möglich?""
+        </Form.Label>
+        <Form.Control>
+            <option value="">Auswählen</option>
+            <option value="">Ja<button type="button">go to Page 12</button></option>
+            <option value="">Nein<button type="button">go to Page 15</button></option>
+            
+        </Form.Control>
                 
-                <table>
-                    <td>
-                        <p1>
-                            1.1 Ja
-                            <button type="button">go to Page 12</button>
-                            
-                        </p1>
-                    </td>
-                    <td>
-                            <p2>2. Nein
-                                <button type="button">go to Page 15</button>
-                            </p2>
-                    </td>
-                   
-
-
-
-                    
-                </table>
+            
                 <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back
         </button>

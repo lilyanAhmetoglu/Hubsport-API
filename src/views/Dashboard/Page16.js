@@ -19,23 +19,23 @@ class Page16 extends Component {
                     Entscheidende Frage
                 </h1>
                 <p1>"Werden Sie am Ende allein entscheiden, oder gibt esnoch jemanden, mit dem Sie sich 
-                    abstimmen müssen?"
-                    (Wenn er nicht der alleinige Entscheider ist, muss der zweite Entscheider ebenfalls im Gespräch mit
+                    abstimmen müssen?"</p1>
+
+                <p2>(Wenn er nicht der alleinige Entscheider ist, muss der zweite Entscheider ebenfalls im Gespräch mit
                     dabei sein)
-                </p1>
-                <p2>"Im nächsten Gespräch wird einer unserer Strategieberater Ihnen eine mögliche Strategie vorstellen
+                    </p2> 
+
+
+                <p3>"Im nächsten Gespräch wird einer unserer Strategieberater Ihnen eine mögliche Strategie vorstellen
                     und erklären wie die nächsten Schritte aussehen würden."
-                </p2>
-                <table>
-                    <td>
-                        <p3>
+                </p3>
+                
+                        <p4>
                             Next
                             <button type="button">go to Page 19</button>
                             
-                        </p3>
-                    </td>
+                        </p4>
                    
-               </table>
                <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back
         </button>

@@ -19,36 +19,22 @@ import React, { Component } from "react";
                     Wenn nach diesen Behandlungen keine Aussage vom Kunden kommt oder das Budget zu
                     niedrig ist:
                 </h1>
+
                 <p1>
                     "Wir haben in der Vergangenheit festgestellt, dass eine Investition zwischen 3.900 EUR-8.500 EUR
                     notwendig ist, um den von Ihnen beschriebenen Film zu realisieren."
-
-                    "Ist das für Sie möglich?"
-                </p1>
-                <table>
-                    <td>
-                        <p2>
-                            1. Nein,ich habe mich nicht beworben.
-                            <button type="button">go to Page 5</button>
-                            
-                        </p2>
-                        </td>
-                        <td>
-                            <p3>2. Ja.
-                                <button type="button">go to Page 7</button>
-                            </p3>
-                        </td>
-                        <td>
-                            <p3>
-                                3. Ich habe keine Zeit.
-                                <button type="button">go to Page X</button>
-                            </p3>
-                        </td>
-
-
-
-                    
-                </table>
+                    </p1>
+                    <Form.Label>
+            {" "}
+             "Ist das für Sie möglich?"
+                    </Form.Label>
+                    <Form.Control>
+                <option value="">Auswählen</option>
+                <option value="">Ja<button type="button">go to Page 12</button></option>
+                <option value="">"Das ist aber teuer..."oder andere Einwände<button type="button">go to Page 13</button></option>
+                <option value="">Nein das ist nicht möglich<button type="button">go to Page 14</button></option>
+                     </Form.Control>
+                
                 <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back
         </button>
