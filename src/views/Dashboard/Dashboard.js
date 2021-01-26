@@ -26,8 +26,8 @@ export default class Dashboard extends Component {
     step: 1,
 
     // step 1
-    companyName:"",
-    companyDiscription:"",
+    companyName: "",
+    companyDiscription: "",
     name: "",
     surname: "",
     email: "",
@@ -65,9 +65,9 @@ export default class Dashboard extends Component {
 
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
-    if(input==="company"){
-      console.log("this is company")
-      Server.getCompanyContacts( e.target.value).then((res) => {
+    if (input === "company") {
+      console.log("this is company");
+      Server.getCompanyContacts(e.target.value).then((res) => {
         let respoo = JSON.parse(res.data.body);
         const contacts = respoo.contacts;
         this.setState({ contacts });
@@ -114,7 +114,6 @@ export default class Dashboard extends Component {
           companies={companies}
           companyName={companyName}
           companyDiscription={companyDiscription}
-
         />
       );
     if (step === 2)
@@ -158,80 +157,29 @@ export default class Dashboard extends Component {
           later_email={later_email}
           task_note={task_note}
           task_deadline={task_deadline}
-          
           prevStep={this.prevStep}
+          nextStep={this.nextStep}
         />
       );
-      if (step === 5)
-      return (
-        <Page4/>
+    if (step === 5)
+      return <Page4 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 6) return <Page5 />;
 
-      );
-      if (step === 6)
-      return (
-        <Page5/>
+    if (step === 7) return <Page6 />;
 
-      );
-
-      if (step === 7)
-      return (
-        <Page6/>
-
-      );
-
-      if (step === 8)
-      return (
-        <Page7/>
-      );
-      if (step === 9)
-      return (
-        <Page8/>
-      );
-      if (step === 10)
-      return (
-        <Page9/>
-      );
-      if (step === 11)
-      return (
-        <Page10/>
-      );
-      if (step === 12)
-      return (
-        <Page11/>
-      );
-      if (step === 13)
-      return (
-        <Page12/>
-      );
-      if (step === 14)
-      return (
-        <Page13/>
-      );
-      if (step === 15)
-      return (
-        <Page14/>
-      );
-      if (step === 16)
-      return (
-        <Page15/>
-      );
-      if (step === 17)
-      return (
-        <Page16/>
-      );
-      if (step === 18)
-      return (
-        <Page17/>
-      );
-      if (step === 19)
-      return (
-        <Page18/>
-      );
-      if (step === 20)
-      return (
-        <Page19/>
-      );
-      
+    if (step === 8) return <Page7 />;
+    if (step === 9) return <Page8 />;
+    if (step === 10) return <Page9 />;
+    if (step === 11) return <Page10 />;
+    if (step === 12) return <Page11 />;
+    if (step === 13) return <Page12 />;
+    if (step === 14) return <Page13 />;
+    if (step === 15) return <Page14 />;
+    if (step === 16) return <Page15 />;
+    if (step === 17) return <Page16 />;
+    if (step === 18) return <Page17 />;
+    if (step === 19) return <Page18 />;
+    if (step === 20) return <Page19 />;
   };
   componentDidMount() {
     // const query = new URLSearchParams(this.props.location.search);

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Server from "../../services/server";
 export default class Conclusion extends Component {
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
   back = (e) => {
     e.preventDefault();
     this.props.prevStep();
@@ -168,8 +172,8 @@ export default class Conclusion extends Component {
         <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back
         </button>
-        <button type="button" className="btn btn-primary" onClick={this.handleSubmit}>
-          Submit
+        <button type="button" className="btn btn-primary" onClick={this.continue}>
+          Next 
         </button>
       </div>
     );
