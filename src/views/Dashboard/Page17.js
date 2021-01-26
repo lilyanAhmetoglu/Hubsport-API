@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
 class Page17 extends Component {
     continue = (e) => {
@@ -18,25 +20,25 @@ class Page17 extends Component {
                 <h1>
                     Terminvereinbarung
                 </h1>
-                <p1>Haben Sie einen präferierten Wochentag, an dem es Ihnen optimal passen würde? 
+                <p>Haben Sie einen präferierten Wochentag, an dem es Ihnen optimal passen würde? 
                     Haben Sie auch eine präferierte Uhrzeit?
-                </p1>
+                </p>
 
-                <p2>(Wenn Kunde nein sagt, A-B Frage stellen: Zwei Optionen aufzeigen)
+                <p>(Wenn Kunde nein sagt, A-B Frage stellen: Zwei Optionen aufzeigen)
                     Kontrollieren, dass der Termin im Kalender steht
-                </p2>
+                </p>
 
-                <p3>Sie hatten Glück, ich konnte Ihnen noch einen freien Termin bei unserem Geschäftsführer "Mustermann" sichern.
+                <p>Sie hatten Glück, ich konnte Ihnen noch einen freien Termin bei unserem Geschäftsführer "Mustermann" sichern.
                     Er ist absoluter Experte und hat unsere Firma von Beginn an aufgebaut.
-                </p3>
+                </p>
 
-                <p4><strong>Möglichkeiten der Absage durchgeben:</strong>
-                 Gibt es einen Grund, der Ihnen spontan einfällt, warum Sie den Termin nicht wahrnehmen könnten? Wenn ja welcher?
-                </p4>
+                <p><strong>Möglichkeiten der Absage durchgeben:</strong>
+                  Gibt es einen Grund, der Ihnen spontan einfällt, warum Sie den Termin nicht wahrnehmen könnten? Wenn ja welcher?
+                </p>
 
-                <p5>Vorbereitende Fragen stellen, um zu gewährleisten, dass die Person auch auftauchen wird.</p5>
+                <p>Vorbereitende Fragen stellen, um zu gewährleisten, dass die Person auch auftauchen wird.</p>
 
-                <p6>Aufgabe erstellen</p6>
+                <p>Aufgabe erstellen</p>
                 <div class="Aufgabe erstellen">
                 <p>  </p>
                     </div>

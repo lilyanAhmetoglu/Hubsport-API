@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
 class Page13 extends Component {
     continue = (e) => {
@@ -23,10 +25,10 @@ class Page13 extends Component {
         Diese erste Einschätzung ist erstmal ein geschätzter Preisrahmen. In welchem Bereich des eben genannten
         Rahmens, sehen Sie sich denn?
         </Form.Label>
-        <Form.Control>
+        <Form.Control as="select">
             <option value="">Auswählen</option>
-            <option value="">Bei Nennung der Summe<button type="button">go to Page 12</button></option>
-            <option value="">Nein, eigentlich ungern<button type="button">go to Page 14</button></option>
+            <option value="">Bei Nennung der Summe</option>
+            <option value="">Nein, eigentlich ungern</option>
             
         </Form.Control>
                 

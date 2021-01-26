@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
 class Page14 extends Component {
     continue = (e) => {
@@ -23,10 +25,10 @@ class Page14 extends Component {
        "Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an, die bei einer Investitionssumme
        von 2.900 EUR liegt, Ist das für Sie möglich?""
         </Form.Label>
-        <Form.Control>
+        <Form.Control as="select">
             <option value="">Auswählen</option>
-            <option value="">Ja<button type="button">go to Page 12</button></option>
-            <option value="">Nein<button type="button">go to Page 15</button></option>
+            <option value="">Ja</option>
+            <option value="">Nein</option>
             
         </Form.Control>
                 

@@ -16,19 +16,19 @@ class Page4 extends Component {
     return (
       <div>
         <h1>Einleitung</h1>
-        <p1>
+        <p>
           Hallo [HERR oder FRAU], hier ist [Max Mustermann] von der "Muster GmbH". Ich grüße Sie.
-        </p1>
+        </p>
         <Form.Label>
             {" "}
         Sie haben sich bei uns gemeldet, um herauszufinden, ob Ihnen unsere Dienstleistungen im Bereich Video
         weiterhelfen können, ist das richtig?
         </Form.Label>
-        <Form.Control>
+        <Form.Control as="select">
             <option value="">Auswählen</option>
-            <option value="">Nein, ich habe mich nicht beworben<button type="button">go to Page 5</button></option>
-            <option value="">Ja<button type="button">go to Page 7</button></option>
-            <option value="">Ich habe keine Zeit<button type="button">go to Page X</button></option>
+            <option value="">Nein, ich habe mich nicht beworben</option>
+            <option value="">Ja </option>
+            <option value="">Ich habe keine Zeit</option>
         </Form.Control>
         <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back

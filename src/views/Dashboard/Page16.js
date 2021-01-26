@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
 class Page16 extends Component {
     continue = (e) => {
@@ -18,23 +20,23 @@ class Page16 extends Component {
                 <h1>
                     Entscheidende Frage
                 </h1>
-                <p1>"Werden Sie am Ende allein entscheiden, oder gibt esnoch jemanden, mit dem Sie sich 
-                    abstimmen müssen?"</p1>
+                <p>"Werden Sie am Ende allein entscheiden, oder gibt esnoch jemanden, mit dem Sie sich 
+                    abstimmen müssen?"</p>
 
-                <p2>(Wenn er nicht der alleinige Entscheider ist, muss der zweite Entscheider ebenfalls im Gespräch mit
+                <p>(Wenn er nicht der alleinige Entscheider ist, muss der zweite Entscheider ebenfalls im Gespräch mit
                     dabei sein)
-                    </p2> 
+                    </p> 
 
 
-                <p3>"Im nächsten Gespräch wird einer unserer Strategieberater Ihnen eine mögliche Strategie vorstellen
+                <p>"Im nächsten Gespräch wird einer unserer Strategieberater Ihnen eine mögliche Strategie vorstellen
                     und erklären wie die nächsten Schritte aussehen würden."
-                </p3>
+                </p>
                 
-                        <p4>
+                        <p>
                             Next
                             <button type="button">go to Page 19</button>
                             
-                        </p4>
+                        </p>
                    
                <button type="button" className="btn btn-warning" onClick={this.back}>
           « Back

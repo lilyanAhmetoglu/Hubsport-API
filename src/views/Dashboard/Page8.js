@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
  class Page8 extends Component {
     continue = (e) => {
@@ -18,23 +20,26 @@ import React, { Component } from "react";
                 <h1>
                     Beratungsgespräch
                 </h1>
-                <p1>
+                <p>
                     <strong>Wenn Website noch nicht bekannt:</strong> 
-                </p1>
-                <p2>
+                </p>
+                <p>
                 "Haben Sie eine Website, die wir uns vorab schon einmal anssehen können?"
-                </p2>
-                <p3><strong>Wenn Kunde noch kein Ziel vor Augen hat:</strong> </p3>
-                <p4><ol>"Wir haben in der Vergangenheit die Erfahrung gemacht",
-                  
-                    <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
-                    <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
-                    <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
-                    <li>dass unsere Kunden eine bessere Wahrnehmung gegenüber Ihren Kunden anstreben"</li>
-                    </ol>
-                    </p4>
+                </p>
+                <p><strong>Wenn Kunde noch kein Ziel vor Augen hat:</strong> </p>
+            <p>"Wir haben in der Vergangenheit die Erfahrung gemacht",
+
+            <ul>
+                <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
+                <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
+                <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
+                <li>dass unsere Kunden eine bessere Wahrnehmung gegenüber
+                     Ihren Kunden anstreben"</li>
+            </ul>
+                </p>
+                
                
-                <p5>"Welches der genannten Punkte ist für Sie am relevantesten?"</p5>
+                <p>"Welches der genannten Punkte ist für Sie am relevantesten?"</p>
                 <div class="Notizen">
                 <p><strong>Notizen</strong> </p>
                     </div>
@@ -42,35 +47,35 @@ import React, { Component } from "react";
                         
                             <h2><strong>Vorgesprächs-Frame</strong></h2>
 
-                            <p6>"In diesem Gespräch geht es darum heraus zu finden welches Produkt genau zu Ihren Ansprüchen passt,
+                            <p>"In diesem Gespräch geht es darum heraus zu finden welches Produkt genau zu Ihren Ansprüchen passt,
                             damit wir auch die optimale Lösung für Sie auswählen können"
-                            </p6>
+                            </p>
 
 
-                            <h3><strong>Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)</strong></h3>
+                            <h><strong>Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)</strong></h>
 
-                            <p7>"Anhand der Informationen, die Sie mir in diesem Gespräch mitgeben, kann ich dann sehr genau
+                            <p>"Anhand der Informationen, die Sie mir in diesem Gespräch mitgeben, kann ich dann sehr genau
                             einschätzen, wie wir Ihnen weiterhelfen können und welches das passende produkt für Sie ist."
-                            </p7>
+                            </p>
                             
-                            <p8>"Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
+                            <p>"Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
                                 [Ja, abholen]
-                            </p8>
+                            </p>
 
 
                     
                            
                         
                     
-                            <p6>
+                            <p>
                                 1.1. Next
                                 <button type="button">go to Page 9</button>
-                            </p6>
+                            </p>
                         <Form.Label>
                             {" "}
                         </Form.Label>
-                        <Form.Control>
-                         <option value="">Next<button type="button">go to Page 9</button></option>
+                        <Form.Control as="select">
+                         <option value="">Next</option>
             
                          </Form.Control>
 

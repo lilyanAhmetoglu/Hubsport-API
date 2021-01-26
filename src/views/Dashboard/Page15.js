@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
 class Page15 extends Component {
     continue = (e) => {
@@ -18,12 +20,12 @@ class Page15 extends Component {
                 <h1>
                     Bei Nicht-Eignung Absage und Frage nach Empfehlung
                 </h1>
-                <p1>"Tut mir leid, aber aktuell können wir Ihnen da leider nicht helfen. Darf ich Ihnen noch eine kurze Frage stellen:</p1>
+                <p>"Tut mir leid, aber aktuell können wir Ihnen da leider nicht helfen. Darf ich Ihnen noch eine kurze Frage stellen:</p>
 
-                   <p2>Wen kennen Sie denn noch, für den ein Film/Video interessant sein könnte?
+                   <p>Wen kennen Sie denn noch, für den ein Film/Video interessant sein könnte?
                      Wenn Sie wen kennen würde, wer wäre das?"
-                </p2>
-                <p3>Bitte Namen des potenziellen Interessenten angeben</p3>
+                </p>
+                <p>Bitte Namen des potenziellen Interessenten angeben</p>
                 <div class="Notizen">
                 <p><strong>Notizen</strong> </p>
                     </div>
