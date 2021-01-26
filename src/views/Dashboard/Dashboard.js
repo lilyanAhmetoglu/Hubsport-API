@@ -4,6 +4,22 @@ import CallCondition from "./CallCondition";
 import CloseProcess from "./CloseProcess";
 import Intorduction from "./Intorduction";
 import Conclusion from "./Conclusion";
+import Page4 from "./Page4";
+import Page5 from "./Page5";
+import Page6 from "./Page6";
+import Page7 from "./Page7";
+import Page8 from "./Page8";
+import Page9 from "./Page9";
+import Page10 from "./Page10";
+import Page11 from "./Page11";
+import Page12 from "./Page12";
+import Page13 from "./Page13";
+import Page14 from "./Page14";
+import Page15 from "./Page15";
+import Page16 from "./Page16";
+import Page17 from "./Page17";
+import Page18 from "./Page18";
+import Page19 from "./Page19";
 
 export default class Dashboard extends Component {
   state = {
@@ -146,6 +162,76 @@ export default class Dashboard extends Component {
           prevStep={this.prevStep}
         />
       );
+      if (step === 5)
+      return (
+        <Page4/>
+
+      );
+      if (step === 6)
+      return (
+        <Page5/>
+
+      );
+
+      if (step === 7)
+      return (
+        <Page6/>
+
+      );
+
+      if (step === 8)
+      return (
+        <Page7/>
+      );
+      if (step === 9)
+      return (
+        <Page8/>
+      );
+      if (step === 10)
+      return (
+        <Page9/>
+      );
+      if (step === 11)
+      return (
+        <Page10/>
+      );
+      if (step === 12)
+      return (
+        <Page11/>
+      );
+      if (step === 13)
+      return (
+        <Page12/>
+      );
+      if (step === 14)
+      return (
+        <Page13/>
+      );
+      if (step === 15)
+      return (
+        <Page14/>
+      );
+      if (step === 16)
+      return (
+        <Page15/>
+      );
+      if (step === 17)
+      return (
+        <Page16/>
+      );
+      if (step === 18)
+      return (
+        <Page17/>
+      );
+      if (step === 19)
+      return (
+        <Page18/>
+      );
+      if (step === 20)
+      return (
+        <Page19/>
+      );
+      
   };
   componentDidMount() {
     // const query = new URLSearchParams(this.props.location.search);
