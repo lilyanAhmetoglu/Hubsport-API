@@ -20,6 +20,7 @@ import Page16 from "./Page16";
 import Page17 from "./Page17";
 import Page18 from "./Page18";
 import Page19 from "./Page19";
+import {Form} from "react-bootstrap";
 
 export default class Dashboard extends Component {
   state = {
@@ -216,12 +217,18 @@ export default class Dashboard extends Component {
     return (
       <div className="container">
         <div className="row ">
-          <div className="col-md-12 ">
+          <div className="col-md-8 ">
             <div className="theform">
               <h6> Step {step} of 4.</h6>
 
               {this.showStep()}
             </div>
+          </div>
+          <div className="col-md-4">
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+         <Form.Label>Notizen</Form.Label>
+          <Form.Control as="textarea" rows={25} />
+          </Form.Group>
           </div>
         </div>
       </div>
