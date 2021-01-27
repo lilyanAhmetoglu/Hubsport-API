@@ -1,7 +1,17 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
  class Page8 extends Component {
+    continue = (e) => {
+        e.preventDefault();
+        this.props.nextStep();
+      };
     
+      back = (e) => {
+        e.preventDefault();
+        this.props.prevStep();
+      };
     render() {
         return (
             
@@ -10,51 +20,75 @@ import React, { Component } from "react";
                 <h1>
                     Beratungsgespräch
                 </h1>
-                <p1>
-                    <strong>Wenn Website noch nicht bekannt:</strong> "Haben Sie eine Website, die wir uns vorab schon einmal anssehen können?"
-                </p1>
-                <p2><strong>Wenn Kunde noch kein Ziel vor Augen hat:</strong> "Wir haben in der Vergangenheit die Erfahrung gemacht",</p2>
-                <ol>
-                    <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
-                    <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
-                    <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
-                    <li>dass unsere Kunden eine bessere Wahrnehmung gegenüber Ihren Kunden anstreben"</li>
-                </ol>
-                <p2>"Welches der genannten Punkte ist für Sie am relevantesten?"</p2>
+                <p>
+                    <strong>Wenn Website noch nicht bekannt:</strong> 
+                </p>
+                <p>
+                "Haben Sie eine Website, die wir uns vorab schon einmal anssehen können?"
+                </p>
+                <p><strong>Wenn Kunde noch kein Ziel vor Augen hat:</strong> </p>
+            <p>"Wir haben in der Vergangenheit die Erfahrung gemacht",
+
+            <ul>
+                <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
+                <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
+                <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
+                <li>dass unsere Kunden eine bessere Wahrnehmung gegenüber
+                     Ihren Kunden anstreben"</li>
+            </ul>
+                </p>
                 
-                <table>
-                    <td>
-                        <p3>
-                            1.1 Ziel des Kunden einfügen
-                            </p3>
-                    </td>
+               
+                <p>"Welches der genannten Punkte ist für Sie am relevantesten?"</p>
+                <div class="Notizen">
+                <p><strong>Notizen</strong> </p>
+                    </div>
+                
                         
-                            <p4><strong>Vorgesprächs-Frame</strong>
-                            "In diesem Gespräch geht es darum heraus zu finden welches Produkt genau zu Ihren Ansprüchen passt,
+                            <h2><strong>Vorgesprächs-Frame</strong></h2>
+
+                            <p>"In diesem Gespräch geht es darum heraus zu finden welches Produkt genau zu Ihren Ansprüchen passt,
                             damit wir auch die optimale Lösung für Sie auswählen können"
-                            </p4>
-                            <p5><strong>Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)</strong>
-                            "Anhand der Informationen, die Sie mir in diesem Gespräch mitgeben, kann ich dann sehr genau
+                            </p>
+
+
+                            <h><strong>Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)</strong></h>
+
+                            <p>"Anhand der Informationen, die Sie mir in diesem Gespräch mitgeben, kann ich dann sehr genau
                             einschätzen, wie wir Ihnen weiterhelfen können und welches das passende produkt für Sie ist."
+                            </p>
                             
-                            
-                            "Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
+                            <p>"Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
+                                [Ja, abholen]
+                            </p>
 
 
-                            "Ja" abholen
-                            </p5>
+                    
+                           
                         
-                        
-                            <p6>
+                    
+                            <p>
                                 1.1. Next
                                 <button type="button">go to Page 9</button>
-                            </p6>
-                        
+                            </p>
+                        <Form.Label>
+                            {" "}
+                        </Form.Label>
+                        <Form.Control as="select">
+                         <option value="">Next</option>
+            
+                         </Form.Control>
 
 
 
                     
-                </table>
+             
+                <button type="button" className="btn btn-warning" onClick={this.back}>
+          « Back
+        </button>
+        <button type="button" className="btn btn-success" onClick={this.continue}>
+          Next »
+        </button>
 
                
              </div>

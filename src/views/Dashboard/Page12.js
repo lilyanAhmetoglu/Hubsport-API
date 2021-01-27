@@ -1,44 +1,46 @@
 import React, { Component } from "react";
+import { NearMeOutlined } from "@material-ui/icons";
+import { Form } from "react-bootstrap";
 
 class Page12 extends Component {
-    
-    render() {
-        return (
-            
-            
-            <div>
-                <h1>
-                    "Und diesen Betrag sind Sie auch wirklich bereit für Ihren Film zu investieren?"
-                </h1>
-                
-                <table>
-                    <td>
-                        <p1>
-                            1.1 Ja
-                            <button type="button">go to Page 16</button>
-                            
-                        </p1>
-                    </td>
-                    <td>
-                            <p2>2. Nein, eigentlich ungern
-                                <button type="button">go to Page 14</button>
-                            </p2>
-                    </td>
-                   
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
 
+  back = (e) => {
+    e.preventDefault();
+    this.props.prevStep();
+  };
+  render() {
+    return (
+      <div>
+        <h1>Sobald eine Summe genannt wurde:</h1>
 
+        <Form.Label>
+          {" "}
+          "Und diesen Betrag sind Sie auch wirklich bereit für Ihren Film zu
+          investieren?"
+        </Form.Label>
+        <Form.Control as="select">
+          <option value="">Auswählen</option>
+          <option value="">Ja</option>
+          <option value="">  Nein, eigentlich ungern</option>
+        </Form.Control>
 
-                    
-                </table>
-
-               
-             </div>
-                
-                    
-
-                
-        )
-    }
+        <button type="button" className="btn btn-warning" onClick={this.back}>
+          « Back
+        </button>
+        <button
+          type="button"
+          className="btn btn-success"
+          onClick={this.continue}
+        >
+          Next »
+        </button>
+      </div>
+    );
+  }
 }
 
 export default Page12;
