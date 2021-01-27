@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Form, Container, Col, Row } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
+import {chronoExample} from "react-bootstrap";
+
 export default class Intorduction extends Component {
   continue = (e) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ export default class Intorduction extends Component {
       later_email,
       task_note,
       task_deadline,
+      
     } = this.props;
     return (
       <Container>
@@ -198,6 +201,7 @@ export default class Intorduction extends Component {
               />
             </Form.Group>
           </div>
+          
         )}
         <button type="button" className="btn btn-warning"onClick={this.back}>
           « Back
@@ -206,6 +210,9 @@ export default class Intorduction extends Component {
           Next »
         </button>
       </Container>
+      
+      
+      
     );
   }
 }
