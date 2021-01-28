@@ -21,7 +21,7 @@ import Page17 from "./Page17";
 import Page18 from "./Page18";
 import Page19 from "./Page19";
 import {Form} from "react-bootstrap";
-import chronoExample from "react-bootstrap";
+import Stopwatch from "../Timer/Components/Stopwatch";
 
 export default class Dashboard extends Component {
   state = {
@@ -216,11 +216,19 @@ export default class Dashboard extends Component {
     const { step } = this.state;
 
     return (
+     
       <div className="container">
         <div className="row ">
           <div className="col-md-8 ">
             <div className="theform">
               <h6> Step {step} of 4.</h6>
+
+              <div className="App">
+             <div className="App-title">Timers Demo</div>
+              <div className="Timers">
+             <Stopwatch />
+             </div>
+            </div>
 
               {this.showStep()}
             </div>
@@ -232,15 +240,8 @@ export default class Dashboard extends Component {
           </Form.Group>
           </div>
         </div>
-        <div id="chronoExample">
-    <div class="values">00:00:00</div>
-    <div>
-        <button class="startButton">Start</button>
-        <button class="pauseButton" >Pause</button>
-        <button class="stopButton">Stop</button>
-        <button class="resetButton">Reset</button>
-    </div>
-</div>
+    
+
       </div>
     );
   }
