@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form, Container } from "react-bootstrap";
-import {chronoExample} from "react-bootstrap";
 
 export default class Intorduction extends Component {
   continue = (e) => {
