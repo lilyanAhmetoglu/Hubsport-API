@@ -20,13 +20,12 @@ import Page16 from "./Page16";
 import Page17 from "./Page17";
 import Page18 from "./Page18";
 import Page19 from "./Page19";
-import {Form} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Stopwatch from "../Timer/Components/Stopwatch";
 
 export default class Dashboard extends Component {
   state = {
     step: 1,
-
     // step 1
     companyName: "",
     companyDiscription: "",
@@ -42,12 +41,34 @@ export default class Dashboard extends Component {
     contacts: [],
     companies: [],
     // step 2
-
     introduction: "",
     meeting_with_expert: "",
     later_email: "",
     task_note: "",
     task_deadline: "",
+    //step 4
+    question1: "",
+    //step 5
+    question2: "",
+    //step 9
+    question3: "",
+    //step 11
+    question4: "",
+    //step 12
+    question5: "",
+    //step 13
+    question6: "",
+    //step 14
+    question7: "",
+    //step17 + step 18
+    taskName: "",
+    taskDate: "",
+  };
+  goToStep = (number) => {
+    const { step } = this.state;
+    this.setState({
+      step: number,
+    });
   };
 
   nextStep = () => {
@@ -97,6 +118,15 @@ export default class Dashboard extends Component {
       task_deadline,
       contacts,
       companies,
+      question1,
+      question2,
+      question3,
+      question4,
+      question5,
+      question6,
+      question7,
+      taskName,
+      taskDate,
     } = this.state;
 
     if (step === 1)
@@ -140,7 +170,121 @@ export default class Dashboard extends Component {
           nextStep={this.nextStep}
         />
       );
+
     if (step === 4)
+      return (
+        <Page4
+          question1={question1}
+          handleChange={this.handleChange}
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
+
+    if (step === 5)
+      return (
+        <Page5
+          question2={question2}
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 6)
+      return <Page6 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 7)
+      return <Page7 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 8)
+      return <Page8 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 9)
+      return (
+        <Page9
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          question3={question3}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 10)
+      return <Page10 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 11)
+      return (
+        <Page11
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          question4={question4}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 12)
+      return (
+        <Page12
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          question5={question5}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 13)
+      return (
+        <Page13
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          question6={question6}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 14)
+      return (
+        <Page14
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          question7={question7}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 15)
+      return (
+        <Page15
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+        />
+      );
+    if (step === 16)
+      return <Page16 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 17)
+      return (
+        <Page17
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          handleChange={this.handleChange}
+          goToStep={this.goToStep}
+          taskName={this.taskName}
+          taseDate={this.taskDate}
+        />
+      );
+    if (step === 18)
+      return (
+        <Page18
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          taskName={this.taskName}
+          taseDate={this.taskDate}
+          handleChange={this.handleChange}
+        />
+      );
+    if (step === 19)
+      return <Page19 prevStep={this.prevStep} nextStep={this.nextStep} />;
+    if (step === 20)
       return (
         <Conclusion
           newold={newold}
@@ -163,38 +307,6 @@ export default class Dashboard extends Component {
           nextStep={this.nextStep}
         />
       );
-    if (step === 5)
-      return <Page4 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 6)
-     return <Page5 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 7) 
-    return <Page6 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 8) 
-    return <Page7 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 9) 
-    return <Page8 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 10) 
-    return <Page9 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 11)
-     return <Page10 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 12) 
-    return <Page11 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 13) 
-    return <Page12 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 14) 
-    return <Page13 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 15) 
-    return <Page14 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 16)
-    return <Page15 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 17) 
-    return <Page16 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 18) 
-    return <Page17 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 19)
-     return <Page18 prevStep={this.prevStep} nextStep={this.nextStep} />;
-    if (step === 20) 
-    return <Page19 prevStep={this.prevStep} nextStep={this.nextStep} />;
   };
   componentDidMount() {
     // const query = new URLSearchParams(this.props.location.search);
@@ -216,32 +328,29 @@ export default class Dashboard extends Component {
     const { step } = this.state;
 
     return (
-     
       <div className="container">
         <div className="row ">
           <div className="col-md-8 ">
             <div className="theform">
-              <h6> Step {step} of 4.</h6>
+              <h6> Step {step} of 20.</h6>
 
               <div className="App">
-             <div className="App-title">Timers Demo</div>
-              <div className="Timers">
-             <Stopwatch />
-             </div>
-            </div>
+                <div className="App-title">Timers Demo</div>
+                <div className="Timers">
+                  <Stopwatch />
+                </div>
+              </div>
 
               {this.showStep()}
             </div>
           </div>
           <div className="col-md-4">
             <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Notizen</Form.Label>
-            <Form.Control as="textarea" rows={25} />
-          </Form.Group>
+              <Form.Label>Notizen</Form.Label>
+              <Form.Control as="textarea" rows={25} />
+            </Form.Group>
           </div>
         </div>
-    
-
       </div>
     );
   }
