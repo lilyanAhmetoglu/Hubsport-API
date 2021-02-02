@@ -24,6 +24,35 @@ app.get("/hello", (req, res) => {
   res.send("Hello world");
 });
 
+// create notes
+app.post("/api/Notizen", function (req, res) {
+  var options = {
+    method: "POST",
+    url: "https://api.hubapi.com/engagements/v1/engagements",
+    headers: 
+      {'Content-Type': 'application/json'},
+      body: 
+      { engagement: 
+         { active: true,
+           ownerId: 1,
+           type: 'NOTE',
+           timestamp: 1409172644778 },
+        associations: 
+         { contactIds: [ 11877974 ],
+           companyIds: [],
+           dealIds: [],
+           ownerIds: [] },
+        attachments: [ { id: 4241968539 } ],
+        metadata: { body: 'note body' } },
+     json: true }; 
+  
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    return res.status(200).send(response);
+    
+  console.log(body);
+  });
+});
 
 
 // authrize the code request
