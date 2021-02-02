@@ -65,9 +65,9 @@ export default class CallCondition extends Component {
                 onChange={handleChange("kind")}
               >
                 <option value="">Choose</option>
-                <option>Initial Call</option>
-                <option>Follow up call</option>
-                <option>Customer call</option>
+                <option value="Initial Call">Initial Call</option>
+                <option value="Follow up call">Follow up call</option>
+                <option value="Customer call">Customer call</option>
               </Form.Control>
             </Form.Group>
             <Form.Group>

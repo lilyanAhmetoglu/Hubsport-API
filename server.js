@@ -17,14 +17,12 @@ const REDIRECT_URL = "http://localhost:3000/";
 const REDIRECT_URI = "http://localhost:3000/auth-callback";
 const SCOPES = "contacts automation";
 const CLIENT_SECRET = "8dcf41be-c88c-4de6-9ce4-dec4b1b45e7a";
-const API_KEY="5ec222f8-1992-4df1-8d13-0b5cbe6c2b1a";
+const API_KEY = "5ec222f8-1992-4df1-8d13-0b5cbe6c2b1a";
 const returnedCompanies = [];
 
 app.get("/hello", (req, res) => {
   res.send("Hello world");
 });
-
-
 
 // authrize the code request
 app.post("/api/hubspot", function (req, res) {
@@ -120,7 +118,6 @@ app.post("/api/company", function (req, res) {
   });
 });
 
-
 // Create contact
 app.post("/api/contact", function (req, res) {
   var options = {
@@ -139,13 +136,48 @@ app.post("/api/contact", function (req, res) {
   });
 });
 
+// create note
+app.post("/api/notizen", function (req, res) {
+  var options = {
+    method: "POST",
+    url: "https://api.hubapi.com/engagements/v1/engagements",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${JSON.parse(JSON.stringify(req.query.token))}`,
+    },
+    body: req.body,
+    json: true,
+  };
 
- 
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    return res.status(200).send(response);
+  });
+});
+
+// create Task
+app.post("/api/task", function (req, res) {
+  var options = {
+    method: "POST",
+    url: "https://api.hubapi.com/engagements/v1/engagements",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${JSON.parse(JSON.stringify(req.query.token))}`,
+    },
+    body: req.body,
+    json: true,
+  };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    return res.status(200).send(response);
+  });
+});
 //Qimia.io Create mew company with Api key
 app.post("/api/company-qimia", function (req, res) {
   const company = {
     properties: [
-      { name: "name", value: req.query.name},
+      { name: "name", value: req.query.name },
       { name: "description", value: req.query.name },
     ],
   };
@@ -155,7 +187,7 @@ app.post("/api/company-qimia", function (req, res) {
     qs: { hapikey: API_KEY },
     headers: {
       "Content-Type": "application/json",
-     // Authorization: `Bearer ${JSON.parse(JSON.stringify(req.query.token))}`,
+      // Authorization: `Bearer ${JSON.parse(JSON.stringify(req.query.token))}`,
     },
     body: company,
     json: true,
