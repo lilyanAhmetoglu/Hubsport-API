@@ -22,15 +22,16 @@ import Page18 from "./Page18";
 import Page19 from "./Page19";
 import { Form } from "react-bootstrap";
 import Stopwatch from "../Timer/Components/Stopwatch";
-
 export default class Dashboard extends Component {
   state = {
     step: 1,
+    note: "",
+    companyId: "",
     // step 1
     companyName: "",
     companyDiscription: "",
     name: "",
-    surname: "",
+    position: "",
     email: "",
     newold: "",
     kind: "",
@@ -63,6 +64,7 @@ export default class Dashboard extends Component {
     //step17 + step 18
     taskName: "",
     taskDate: "",
+    taskDesc: "",
   };
   goToStep = (number) => {
     const { step } = this.state;
@@ -85,10 +87,13 @@ export default class Dashboard extends Component {
       step: step - 1,
     });
   };
-
+  handleChanges(e, name) {
+    this.setState({ [name]: e.target.value });
+  }
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
     if (input === "company") {
+      this.setState({ companyId: e.target.value });
       console.log("this is company");
       Server.getCompanyContacts(e.target.value).then((res) => {
         let respoo = JSON.parse(res.data.body);
@@ -97,14 +102,151 @@ export default class Dashboard extends Component {
       });
     }
   };
-
+  handleSubmit = (event) => {
+    event.preventDefault();
+    var date = new Date(this.state.taskDate);
+    if (this.state.newold === "new") {
+      const contact = {
+        properties: [
+          { property: "email", value: this.state.email },
+          { property: "firstname", value: this.state.name },
+          { property: "phone", value: this.state.phone },
+          {
+            property: "company",
+            value: this.state.companyName,
+          },
+        ],
+      };
+      Server.createContact(contact)
+        .then((res) => res) // convert response
+        .then((data) => {
+          let contactId = data.data.body.vid;
+          const note = {
+            engagement: {
+              active: true,
+              ownerId: 1,
+              type: "NOTE",
+              timestamp: Date.now(),
+            },
+            associations: {
+              contactIds: [contactId],
+              companyIds: [],
+              dealIds: [],
+              ownerIds: [],
+              ticketIds: [],
+            },
+            metadata: {
+              body: this.state.note,
+            },
+          };
+          const task = {
+            engagement: {
+              active: true,
+              ownerId: 1,
+              type: "TASK",
+              timestamp: date.getTime(),
+            },
+            associations: {
+              contactIds: [contactId],
+              companyIds: [],
+              dealIds: [],
+              ownerIds: [],
+              ticketIds: [],
+            },
+            metadata: {
+              body: this.state.taskDesc,
+              subject: this.state.taskName,
+              status: "NOT_STARTED",
+              forObjectType: "CONTACT",
+            },
+          };
+          Server.createNote(note)
+            .then((res) => res) // convert response
+            .then((data) => {
+              let status = data.data.statusCode;
+              status === 200
+                ? Server.createTask(task)
+                    .then((res) => res)
+                    .then((data) => {
+                      let status = data.data.statusCode;
+                      console.log(status);
+                    })
+                : console.log("please fill out the company");
+            })
+            .catch((err) => {
+              console.log(err);
+              alert(err);
+            });
+        });
+    } else if (this.state.newold === "old") {
+      const note = {
+        engagement: {
+          active: true,
+          ownerId: 1,
+          type: "NOTE",
+          timestamp: Date.now(),
+        },
+        associations: {
+          contactIds: [],
+          companyIds: [this.state.companyId],
+          dealIds: [],
+          ownerIds: [],
+          ticketIds: [],
+        },
+        metadata: {
+          body: this.state.note,
+        },
+      };
+      const task = {
+        engagement: {
+          active: true,
+          ownerId: 1,
+          type: "TASK",
+          timestamp: date.getTime(),
+        },
+        associations: {
+          contactIds: [],
+          companyIds: [this.state.companyId],
+          dealIds: [],
+          ownerIds: [],
+          ticketIds: [],
+        },
+        metadata: {
+          body: this.state.taskDesc,
+          subject: this.state.taskName,
+          status: "NOT_STARTED",
+          forObjectType: "CONTACT",
+        },
+      };
+      Server.createNote(note)
+        .then((res) => res) // convert response
+        .then((data) => {
+          let status = data.data.statusCode;
+          status === 200
+            ? Server.createTask(task)
+                .then((res) => res)
+                .then((data) => {
+                  let status = data.data.statusCode;
+                  console.log(status);
+                })
+            : console.log("please fill out the company");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
+    } else {
+      alert("please choose the Call conditions");
+    }
+  };
   showStep = () => {
     const {
       step,
+      note,
       companyName,
       companyDiscription,
       name,
-      surname,
+      position,
       newold,
       kind,
       email,
@@ -127,6 +269,7 @@ export default class Dashboard extends Component {
       question7,
       taskName,
       taskDate,
+      taskDesc,
     } = this.state;
 
     if (step === 1)
@@ -134,18 +277,9 @@ export default class Dashboard extends Component {
         <CallCondition
           nextStep={this.nextStep}
           handleChange={this.handleChange}
+          goToStep={this.goToStep}
           newold={newold}
-          name={name}
-          surname={surname}
-          company={company}
-          kind={kind}
-          email={email}
-          phone={phone}
-          contactperson={contactperson}
-          contacts={contacts}
-          companies={companies}
-          companyName={companyName}
-          companyDiscription={companyDiscription}
+          introduction={introduction}
         />
       );
     if (step === 2)
@@ -155,11 +289,10 @@ export default class Dashboard extends Component {
           prevStep={this.prevStep}
           handleChange={this.handleChange}
           introduction={introduction}
+          company={company}
           contactperson={contactperson}
-          meeting_with_expert={meeting_with_expert}
-          later_email={later_email}
-          task_note={task_note}
-          task_deadline={task_deadline}
+          contacts={contacts}
+          companies={companies}
         />
       );
     if (step === 3)
@@ -168,6 +301,11 @@ export default class Dashboard extends Component {
           handleChange={this.handleChange}
           prevStep={this.prevStep}
           nextStep={this.nextStep}
+          name={name}
+          position={position}
+          companyName={companyName}
+          email={email}
+          phone={phone}
         />
       );
 
@@ -270,6 +408,7 @@ export default class Dashboard extends Component {
           goToStep={this.goToStep}
           taskName={this.taskName}
           taseDate={this.taskDate}
+          taskDesc={this.taskDesc}
         />
       );
     if (step === 18)
@@ -279,6 +418,7 @@ export default class Dashboard extends Component {
           nextStep={this.nextStep}
           taskName={this.taskName}
           taseDate={this.taskDate}
+          taskDesc={this.taskDesc}
           handleChange={this.handleChange}
         />
       );
@@ -289,7 +429,7 @@ export default class Dashboard extends Component {
         <Conclusion
           newold={newold}
           name={name}
-          surname={surname}
+          position={position}
           kind={kind}
           company={company}
           companyName={companyName}
@@ -309,9 +449,6 @@ export default class Dashboard extends Component {
       );
   };
   componentDidMount() {
-    // const query = new URLSearchParams(this.props.location.search);
-    //onst code = query.get("code");
-    //console.log("ee");
     Server.getCompanies().then((res) => {
       let respoo = JSON.parse(res.data.body);
       console.log(respoo);
@@ -325,8 +462,7 @@ export default class Dashboard extends Component {
     });
   }
   render() {
-    const { step } = this.state;
-
+    const { step, note } = this.state;
     return (
       <div className="container">
         <div className="row ">
@@ -345,10 +481,19 @@ export default class Dashboard extends Component {
             </div>
           </div>
           <div className="col-md-4">
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Notizen</Form.Label>
-              <Form.Control as="textarea" rows={25} />
-            </Form.Group>
+            <form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Notizen</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={25}
+                  name="note"
+                  value={note}
+                  onChange={(e) => this.handleChanges(e, "note")}
+                />
+              </Form.Group>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         </div>
       </div>

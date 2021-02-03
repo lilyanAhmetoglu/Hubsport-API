@@ -64,7 +64,6 @@ class Server {
     );
   }
 
-
   createContact(contact) {
     let token = JSON.parse(sessionStorage.getItem("token"));
     var formData = new FormData();
@@ -77,6 +76,31 @@ class Server {
       `http://localhost:3001/api/contact?token=${token}`,formData
     );
   }
+  createNote(Note) {
+    let token = JSON.parse(sessionStorage.getItem("token"));
+    var formData = new FormData();
+    formData = Note
+    /*for (var key in company.properties) {
+      formData.append(key, company.properties[key]);
+    }*/
+    console.log("axios token is "+ JSON.stringify(formData))
+    return axios.post(
+      `http://localhost:3001/api/note?token=${token}`,formData
+    );
+  }
+  createTask(Task) {
+    let token = JSON.parse(sessionStorage.getItem("token"));
+    var formData = new FormData();
+    formData = Task
+    /*for (var key in company.properties) {
+      formData.append(key, company.properties[key]);
+    }*/
+    console.log("axios token is "+ JSON.stringify(formData))
+    return axios.post(
+      `http://localhost:3001/api/task?token=${token}`,formData
+    );
+  }
 }
+
 
 export default new Server();

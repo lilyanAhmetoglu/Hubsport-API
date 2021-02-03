@@ -30,7 +30,7 @@ class Page15 extends Component {
           könnte? Wenn Sie wen kennen würde, wer wäre das?"
         </p>
         <p>Bitte Namen des potenziellen Interessenten angeben</p>
-        <div class="Notizen">
+        <div className="Notizen">
           <p>
             <strong>Notizen</strong>{" "}
           </p>

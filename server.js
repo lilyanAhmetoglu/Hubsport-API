@@ -137,7 +137,7 @@ app.post("/api/contact", function (req, res) {
 });
 
 // create note
-app.post("/api/notizen", function (req, res) {
+app.post("/api/note", function (req, res) {
   var options = {
     method: "POST",
     url: "https://api.hubapi.com/engagements/v1/engagements",
