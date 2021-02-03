@@ -22,15 +22,16 @@ import Page18 from "./Page18";
 import Page19 from "./Page19";
 import { Form } from "react-bootstrap";
 import Stopwatch from "../Timer/Components/Stopwatch";
-
 export default class Dashboard extends Component {
   state = {
     step: 1,
+    note: "",
+    companyId:"",
     // step 1
     companyName: "",
     companyDiscription: "",
     name: "",
-    surname: "",
+    position: "",
     email: "",
     newold: "",
     kind: "",
@@ -85,10 +86,13 @@ export default class Dashboard extends Component {
       step: step - 1,
     });
   };
-
+  handleChanges(e) {
+    this.setState({ note: e.target.value });
+  }
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
     if (input === "company") {
+      this.setState({ companyId: e.target.value });
       console.log("this is company");
       Server.getCompanyContacts(e.target.value).then((res) => {
         let respoo = JSON.parse(res.data.body);
@@ -97,14 +101,38 @@ export default class Dashboard extends Component {
       });
     }
   };
-
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const note = {
+      engagement: {
+        active: true,
+        ownerId: 1,
+        type: "NOTE",
+        timestamp: Date.now(),
+      },
+      associations: {
+        contactIds: [],
+        companyIds: [this.state.companyId],
+        dealIds: [],
+        ownerIds: [],
+        ticketIds: [],
+      },
+      metadata: {
+        body: this.state.note,
+      },
+    };
+    Server.createNote(note).then((res) => {
+      console.log("res is" + res);
+    });
+  };
   showStep = () => {
     const {
       step,
+      note,
       companyName,
       companyDiscription,
       name,
-      surname,
+      position,
       newold,
       kind,
       email,
@@ -134,18 +162,9 @@ export default class Dashboard extends Component {
         <CallCondition
           nextStep={this.nextStep}
           handleChange={this.handleChange}
+          goToStep={this.goToStep}
           newold={newold}
-          name={name}
-          surname={surname}
-          company={company}
-          kind={kind}
-          email={email}
-          phone={phone}
-          contactperson={contactperson}
-          contacts={contacts}
-          companies={companies}
-          companyName={companyName}
-          companyDiscription={companyDiscription}
+          introduction={introduction}
         />
       );
     if (step === 2)
@@ -155,11 +174,10 @@ export default class Dashboard extends Component {
           prevStep={this.prevStep}
           handleChange={this.handleChange}
           introduction={introduction}
+          company={company}
           contactperson={contactperson}
-          meeting_with_expert={meeting_with_expert}
-          later_email={later_email}
-          task_note={task_note}
-          task_deadline={task_deadline}
+          contacts={contacts}
+          companies={companies}
         />
       );
     if (step === 3)
@@ -168,6 +186,11 @@ export default class Dashboard extends Component {
           handleChange={this.handleChange}
           prevStep={this.prevStep}
           nextStep={this.nextStep}
+          name={name}
+          position={position}
+          companyName={companyName}
+          email={email}
+          phone={phone}
         />
       );
 
@@ -289,7 +312,7 @@ export default class Dashboard extends Component {
         <Conclusion
           newold={newold}
           name={name}
-          surname={surname}
+          position={position}
           kind={kind}
           company={company}
           companyName={companyName}
@@ -309,9 +332,6 @@ export default class Dashboard extends Component {
       );
   };
   componentDidMount() {
-    // const query = new URLSearchParams(this.props.location.search);
-    //onst code = query.get("code");
-    //console.log("ee");
     Server.getCompanies().then((res) => {
       let respoo = JSON.parse(res.data.body);
       console.log(respoo);
@@ -325,7 +345,7 @@ export default class Dashboard extends Component {
     });
   }
   render() {
-    const { step } = this.state;
+    const { step, note } = this.state;
 
     return (
       <div className="container">
@@ -345,10 +365,19 @@ export default class Dashboard extends Component {
             </div>
           </div>
           <div className="col-md-4">
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Notizen</Form.Label>
-              <Form.Control as="textarea" rows={25} />
-            </Form.Group>
+            <form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Notizen</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={25}
+                  name="note"
+                  value={note}
+                  onChange={this.handleChanges.bind(this)}
+                />
+              </Form.Group>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         </div>
       </div>

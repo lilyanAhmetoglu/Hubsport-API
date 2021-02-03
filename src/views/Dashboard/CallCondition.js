@@ -5,6 +5,9 @@ export default class CallCondition extends Component {
     super(props);
     this.state = { newold: "new" };
   }
+  page = (number) => {
+    this.props.goToStep(number);
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -16,28 +19,22 @@ export default class CallCondition extends Component {
     });
     console.log(value);
   };
-  onClickHandler  = event => {
+  onClickHandler = (event) => {
     const value = event.target.innerHTML;
-    console.log(value)
-  }
+    console.log(value);
+  };
 
   render() {
     const {
       name,
-      surname,
+      position,
       handleChange,
+      introduction,
       newold,
-      kind,
       email,
       phone,
-      company,
-      contactperson,
-      contacts,
-      companies,
       companyName,
-      companyDiscription
     } = this.props;
-    console.log(companies);
     return (
       <Container>
         <h4>Call conditions</h4>
@@ -55,132 +52,40 @@ export default class CallCondition extends Component {
             <option value="old">Existing Contact</option>
           </Form.Control>
         </Form.Group>
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Um was für eine Art Anruf handelt es sich?</Form.Label>
+          <Form.Control
+            as="select"
+            name="introduction"
+            value={introduction}
+            onChange={handleChange("introduction")}
+          >
+            <option value="">Choose</option>
+            <option value="erstkontakt ">Erstkontakt </option>
+            <option value="follow-up  ">Follow-up </option>
+            <option value="kundenanruf ">Kundenanruf </option>
+          </Form.Control>
+        </Form.Group>
+
+
         {this.props.newold === "new" && (
-          <div className="new">
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>What kind of call will you do?</Form.Label>
-              <Form.Control
-                as="select"
-                value={kind}
-                onChange={handleChange("kind")}
-              >
-                <option value="">Choose</option>
-                <option value="Initial Call">Initial Call</option>
-                <option value="Follow up call">Follow up call</option>
-                <option value="Customer call">Customer call</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Please enter company name:</Form.Label>
-              <Form.Control
-                type="text"
-                value={companyName}
-                placeholder="Company Name"
-                onChange={handleChange("companyName")}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Please enter company discription:</Form.Label>
-              <Form.Control
-                type="text"
-                value={companyDiscription}
-                placeholder="Company Discription"
-                onChange={handleChange("companyDiscription")}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Please enter customer name:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="customer name"
-                value={name}
-                onChange={handleChange("name")}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Please enter customer family name:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="customer family name"
-                value={surname}
-                onChange={handleChange("surname")}
-              />
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Please enter customer email address:</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="name@example.com"
-                value={email}
-                onChange={handleChange("email")}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Please enter customer phone number:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="customer phone number"
-                value={phone}
-                onChange={handleChange("phone")}
-              />
-            </Form.Group>
-          </div>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={() => this.page(3)}
+          >
+            Next »
+          </button>
         )}
         {this.props.newold === "old" && (
-          <div className="old">
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>Please choose the company?</Form.Label>
-              <Form.Control
-                as="select"
-                value={company}
-                onChange={handleChange("company")}
-              >
-                <option value="">Choose</option>
-                {companies.map((company, index) => (
-                <option key={index} value={company.companyId} onClick={this.onClickHandler}> {Object.values(company.properties)[0].value}</option>
-                ))}
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>What kind of call will you do?</Form.Label>
-              <Form.Control
-                as="select"
-                value={kind}
-                onChange={handleChange("kind")}
-              >
-                <option value="">Choose</option>
-
-                <option>Initial Call</option>
-
-                <option>Follow up call</option>
-                <option>Customer call</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>
-                If you already know who you will call, please chose your contact
-                person (if you don't have a specific contact person go next):
-              </Form.Label>
-              <Form.Control
-                as="select"
-                value={contactperson}
-                onChange={handleChange("contactperson")}
-              >
-                <option value="">Choose</option>
-                {contacts.map((contact, index) => (
-                  <option key={index} value={contact.vid}>{Object.values(contact.properties)[0].value} {Object.values(contact.properties)[2].value}</option>
-                ))}
-              </Form.Control>
-            </Form.Group>
-          </div>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={this.continue}
+          >
+            Next »
+          </button>
         )}
-        <button
-          type="button"
-          className="btn btn-success"
-          onClick={this.continue}
-        >
-          Next »
-        </button>
       </Container>
     );
   }
