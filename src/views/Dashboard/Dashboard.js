@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import Server from "../../services/server";
 import CallCondition from "./CallCondition";
 import CloseProcess from "./CloseProcess";
@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
     //step17 + step 18
     taskName: "",
     taskDate: "",
-    taskDesc:"",
+    taskDesc: "",
   };
   goToStep = (number) => {
     const { step } = this.state;
@@ -105,62 +105,139 @@ export default class Dashboard extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     var date = new Date(this.state.taskDate);
-    const note = {
-      engagement: {
-        active: true,
-        ownerId: 1,
-        type: "NOTE",
-        timestamp: Date.now(),
-      },
-      associations: {
-        contactIds: [],
-        companyIds: [this.state.companyId],
-        dealIds: [],
-        ownerIds: [],
-        ticketIds: [],
-      },
-      metadata: {
-        body: this.state.note,
-      },
-    };
-    const task = {
-      engagement: {
-        active: true,
-        ownerId: 1,
-        type: "TASK",
-        timestamp: date.getTime(),
-      },
-      associations: {
-        contactIds: [],
-        companyIds: [this.state.companyId],
-        dealIds: [],
-        ownerIds: [],
-        ticketIds: [],
-      },
-      metadata: {
-        body: this.state.taskDesc,
-        subject: this.state.taskName,
-        status: "NOT_STARTED",
-        forObjectType: "CONTACT",
-      },
-    };
-    Server.createNote(note)
-      .then((res) => res) // convert response
-      .then((data) => {
-        let status = data.data.statusCode;
-        status === 200
-          ? Server.createTask(task)
-              .then((res) => res)
-              .then((data) => {
-                let status = data.data.statusCode;
-                console.log(status);
-              })
-          : console.log("please fill out the company");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert(err);
-      });
+    if (this.state.newold === "new") {
+      const contact = {
+        properties: [
+          { property: "email", value: this.state.email },
+          { property: "firstname", value: this.state.name },
+          { property: "phone", value: this.state.phone },
+          {
+            property: "company",
+            value: this.state.companyName,
+          },
+        ],
+      };
+      Server.createContact(contact)
+        .then((res) => res) // convert response
+        .then((data) => {
+          let contactId = data.data.body.vid;
+          const note = {
+            engagement: {
+              active: true,
+              ownerId: 1,
+              type: "NOTE",
+              timestamp: Date.now(),
+            },
+            associations: {
+              contactIds: [contactId],
+              companyIds: [],
+              dealIds: [],
+              ownerIds: [],
+              ticketIds: [],
+            },
+            metadata: {
+              body: this.state.note,
+            },
+          };
+          const task = {
+            engagement: {
+              active: true,
+              ownerId: 1,
+              type: "TASK",
+              timestamp: date.getTime(),
+            },
+            associations: {
+              contactIds: [contactId],
+              companyIds: [],
+              dealIds: [],
+              ownerIds: [],
+              ticketIds: [],
+            },
+            metadata: {
+              body: this.state.taskDesc,
+              subject: this.state.taskName,
+              status: "NOT_STARTED",
+              forObjectType: "CONTACT",
+            },
+          };
+          Server.createNote(note)
+            .then((res) => res) // convert response
+            .then((data) => {
+              let status = data.data.statusCode;
+              status === 200
+                ? Server.createTask(task)
+                    .then((res) => res)
+                    .then((data) => {
+                      let status = data.data.statusCode;
+                      console.log(status);
+                    })
+                : console.log("please fill out the company");
+            })
+            .catch((err) => {
+              console.log(err);
+              alert(err);
+            });
+        });
+    } else if (this.state.newold === "old") {
+      const note = {
+        engagement: {
+          active: true,
+          ownerId: 1,
+          type: "NOTE",
+          timestamp: Date.now(),
+        },
+        associations: {
+          contactIds: [],
+          companyIds: [this.state.companyId],
+          dealIds: [],
+          ownerIds: [],
+          ticketIds: [],
+        },
+        metadata: {
+          body: this.state.note,
+        },
+      };
+      const task = {
+        engagement: {
+          active: true,
+          ownerId: 1,
+          type: "TASK",
+          timestamp: date.getTime(),
+        },
+        associations: {
+          contactIds: [],
+          companyIds: [this.state.companyId],
+          dealIds: [],
+          ownerIds: [],
+          ticketIds: [],
+        },
+        metadata: {
+          body: this.state.taskDesc,
+          subject: this.state.taskName,
+          status: "NOT_STARTED",
+          forObjectType: "CONTACT",
+        },
+      };
+      Server.createNote(note)
+        .then((res) => res) // convert response
+        .then((data) => {
+          let status = data.data.statusCode;
+          status === 200
+            ? Server.createTask(task)
+                .then((res) => res)
+                .then((data) => {
+                  let status = data.data.statusCode;
+                  console.log(status);
+                })
+            : console.log("please fill out the company");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err);
+        });
+    } else {
+      alert("please choose the Call conditions");
+    }
   };
   showStep = () => {
     const {
@@ -386,7 +463,6 @@ export default class Dashboard extends Component {
   }
   render() {
     const { step, note } = this.state;
-    console.log("date is" + this.state.taskDate)
     return (
       <div className="container">
         <div className="row ">
@@ -413,7 +489,7 @@ export default class Dashboard extends Component {
                   rows={25}
                   name="note"
                   value={note}
-                  onChange={(e) => this.handleChanges(e, 'note') }
+                  onChange={(e) => this.handleChanges(e, "note")}
                 />
               </Form.Group>
               <input type="submit" value="Submit" />
