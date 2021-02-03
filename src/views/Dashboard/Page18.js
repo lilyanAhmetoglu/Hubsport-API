@@ -13,7 +13,7 @@ class Page18 extends Component {
     this.props.prevStep();
   };
   render() {
-    const { taskName, taskDate, handleChange } = this.props;
+    const { taskName, taskDate, handleChange ,taskDesc} = this.props;
     return (
       <div>
         <h1>Kein Interresse an einem Film</h1>
@@ -38,6 +38,15 @@ class Page18 extends Component {
             value={taskDate}
             placeholder="Task Name"
             onChange={handleChange("taskDate")}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            type="text"
+            value={taskDesc}
+            placeholder="Task Description"
+            onChange={handleChange("taskDesc")}
           />
         </Form.Group>
         <button type="button" className="btn btn-warning" onClick={this.back}>

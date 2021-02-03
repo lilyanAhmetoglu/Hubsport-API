@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import Server from "../../services/server";
 import CallCondition from "./CallCondition";
 import CloseProcess from "./CloseProcess";
@@ -26,7 +26,7 @@ export default class Dashboard extends Component {
   state = {
     step: 1,
     note: "",
-    companyId:"",
+    companyId: "",
     // step 1
     companyName: "",
     companyDiscription: "",
@@ -64,6 +64,7 @@ export default class Dashboard extends Component {
     //step17 + step 18
     taskName: "",
     taskDate: "",
+    taskDesc:"",
   };
   goToStep = (number) => {
     const { step } = this.state;
@@ -86,8 +87,8 @@ export default class Dashboard extends Component {
       step: step - 1,
     });
   };
-  handleChanges(e) {
-    this.setState({ note: e.target.value });
+  handleChanges(e, name) {
+    this.setState({ [name]: e.target.value });
   }
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
@@ -103,6 +104,7 @@ export default class Dashboard extends Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
+    var date = new Date(this.state.taskDate);
     const note = {
       engagement: {
         active: true,
@@ -121,9 +123,44 @@ export default class Dashboard extends Component {
         body: this.state.note,
       },
     };
-    Server.createNote(note).then((res) => {
-      console.log("res is" + res);
-    });
+    const task = {
+      engagement: {
+        active: true,
+        ownerId: 1,
+        type: "TASK",
+        timestamp: date.getTime(),
+      },
+      associations: {
+        contactIds: [],
+        companyIds: [this.state.companyId],
+        dealIds: [],
+        ownerIds: [],
+        ticketIds: [],
+      },
+      metadata: {
+        body: this.state.taskDesc,
+        subject: this.state.taskName,
+        status: "NOT_STARTED",
+        forObjectType: "CONTACT",
+      },
+    };
+    Server.createNote(note)
+      .then((res) => res) // convert response
+      .then((data) => {
+        let status = data.data.statusCode;
+        status === 200
+          ? Server.createTask(task)
+              .then((res) => res)
+              .then((data) => {
+                let status = data.data.statusCode;
+                console.log(status);
+              })
+          : console.log("please fill out the company");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
   };
   showStep = () => {
     const {
@@ -155,6 +192,7 @@ export default class Dashboard extends Component {
       question7,
       taskName,
       taskDate,
+      taskDesc,
     } = this.state;
 
     if (step === 1)
@@ -293,6 +331,7 @@ export default class Dashboard extends Component {
           goToStep={this.goToStep}
           taskName={this.taskName}
           taseDate={this.taskDate}
+          taskDesc={this.taskDesc}
         />
       );
     if (step === 18)
@@ -302,6 +341,7 @@ export default class Dashboard extends Component {
           nextStep={this.nextStep}
           taskName={this.taskName}
           taseDate={this.taskDate}
+          taskDesc={this.taskDesc}
           handleChange={this.handleChange}
         />
       );
@@ -346,7 +386,7 @@ export default class Dashboard extends Component {
   }
   render() {
     const { step, note } = this.state;
-
+    console.log("date is" + this.state.taskDate)
     return (
       <div className="container">
         <div className="row ">
@@ -373,7 +413,7 @@ export default class Dashboard extends Component {
                   rows={25}
                   name="note"
                   value={note}
-                  onChange={this.handleChanges.bind(this)}
+                  onChange={(e) => this.handleChanges(e, 'note') }
                 />
               </Form.Group>
               <input type="submit" value="Submit" />
