@@ -285,10 +285,10 @@ export default class Dashboard extends Component {
     if (step === 2)
       return (
         <Intorduction
+          goToStep={this.goToStep}
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           handleChange={this.handleChange}
-          introduction={introduction}
           company={company}
           contactperson={contactperson}
           contacts={contacts}

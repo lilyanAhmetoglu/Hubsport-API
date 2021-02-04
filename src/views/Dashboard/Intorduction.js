@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Form, Container } from "react-bootstrap";
 
 export default class Intorduction extends Component {
+  page = (number) => {
+    this.props.goToStep(number);
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -14,7 +17,6 @@ export default class Intorduction extends Component {
 
   render() {
     const {
-      introduction,
       handleChange,
       contactperson,
       company,
@@ -69,7 +71,7 @@ export default class Intorduction extends Component {
         <button
           type="button"
           className="btn btn-success"
-          onClick={this.continue}
+          onClick={() => this.page(4)}
         >
           Next »
         </button>
