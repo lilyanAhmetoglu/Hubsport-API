@@ -79,22 +79,18 @@ export default class Dashboard extends Component {
       step: number,
     });
   };
-
   nextStep = () => {
     const { step } = this.state;
-
     this.setState({
       step: step + 1,
     });
   };
-
   prevStep = () => {
     const { step } = this.state;
     this.setState({
       step: step - 1,
     });
   };
-
   handleEditorChange(note, editor) {
     this.setState({ note });
   }
