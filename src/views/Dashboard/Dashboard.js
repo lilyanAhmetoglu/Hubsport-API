@@ -22,7 +22,14 @@ import Page18 from "./Page18";
 import Page19 from "./Page19";
 import { Form } from "react-bootstrap";
 import Stopwatch from "../Timer/Components/Stopwatch";
+import { Editor } from "@tinymce/tinymce-react";
+
 export default class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleEditorChange = this.handleEditorChange.bind(this);
+  }
   state = {
     step: 1,
     note: "",
@@ -87,6 +94,10 @@ export default class Dashboard extends Component {
       step: step - 1,
     });
   };
+
+  handleEditorChange(note, editor) {
+    this.setState({ note });
+  }
   handleChanges(e, name) {
     this.setState({ [name]: e.target.value });
   }
@@ -171,6 +182,10 @@ export default class Dashboard extends Component {
                       let status = data.data.statusCode;
                       console.log(status);
                     })
+                    .catch((err) => {
+                      console.log(err);
+                      alert(err);
+                    })
                 : console.log("please fill out the company");
             })
             .catch((err) => {
@@ -227,16 +242,18 @@ export default class Dashboard extends Component {
                 .then((res) => res)
                 .then((data) => {
                   let status = data.data.statusCode;
-                  console.log(status);
+                  if (status !== 200) {
+                    alert("task couldn't be created");
+                  }
                 })
-            : console.log("please fill out the company");
+            : alert("note couldn't be created");
         })
         .catch((err) => {
           console.log(err);
           alert(err);
         });
     } else {
-      alert("please choose the Call conditions");
+      alert("please choose the call type");
     }
   };
   showStep = () => {
@@ -254,10 +271,6 @@ export default class Dashboard extends Component {
       introduction,
       contactperson,
       company,
-      meeting_with_expert,
-      later_email,
-      task_note,
-      task_deadline,
       contacts,
       companies,
       question1,
@@ -473,7 +486,6 @@ export default class Dashboard extends Component {
           <div className="col-md-8 ">
             <div className="theform">
               <h6> Step {step} of 20.</h6>
-
               <div className="App">
                 <div className="App-title">Timers Demo</div>
                 <div className="Timers">
@@ -488,15 +500,16 @@ export default class Dashboard extends Component {
             <form onSubmit={this.handleSubmit}>
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Notizen</Form.Label>
-                <Form.Control
-                  as="textarea"
-                  rows={25}
-                  name="note"
+                <Editor
                   value={note}
-                  onChange={(e) => this.handleChanges(e, "note")}
+                  init={{
+                    height: 500,
+                    menubar: false,
+                  }}
+                  onEditorChange={this.handleEditorChange}
                 />
               </Form.Group>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" className="btn btn-primary" />
             </form>
           </div>
         </div>
