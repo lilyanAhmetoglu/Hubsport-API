@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
+import { Form,Container } from "react-bootstrap";
 
 class Page12 extends Component {
   page = (number) => {
@@ -17,8 +17,8 @@ class Page12 extends Component {
   render() {
     const { question5, handleChange } = this.props;
     return (
-      <div>
-        <h1>Sobald eine Summe genannt wurde:</h1>
+      <Container>
+        <h3>Sobald eine Summe genannt wurde:</h3>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
             {" "}
@@ -57,7 +57,7 @@ class Page12 extends Component {
             Next »
           </button>
         )}
-      </div>
+      </Container>
     );
   }
 }

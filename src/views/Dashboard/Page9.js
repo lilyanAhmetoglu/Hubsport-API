@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import { Form,Container } from "react-bootstrap";
 
 class Page9 extends Component {
 
@@ -19,8 +18,8 @@ class Page9 extends Component {
   render() {
     const { question3, handleChange } = this.props;
     return (
-      <div>
-        <h1>Fragen stellen</h1>
+      <Container>
+        <h3>Fragen stellen</h3>
         <p>
           <strong>Weiche Fragen</strong>
         </p>
@@ -140,7 +139,7 @@ class Page9 extends Component {
           Next »
         </button>
         )}
-      </div>
+      </Container>
     );
   }
 }

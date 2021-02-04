@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
+import { Form,Container } from "react-bootstrap";
 
 class Page5 extends Component {
   page = (number) => {
@@ -17,8 +17,8 @@ class Page5 extends Component {
   render() {
     const { question2, handleChange } = this.props;
     return (
-      <div>
-        <h1>Ich habe micht nicht beworben</h1>
+      <Container>
+        <h3>Ich habe micht nicht beworben</h3>
         <p>
           Sie möchten doch einen Imagefilm/Produktfilm/Erklärfilm [Film des
           Kunden bei der Eintragung], oder? Wenn <strong>"NEIN!" dann:</strong>{" "}
@@ -86,7 +86,7 @@ class Page5 extends Component {
             Next »
           </button>
         )}
-      </div>
+      </Container>
     );
   }
 }

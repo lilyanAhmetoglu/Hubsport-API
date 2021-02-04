@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import { Form,Container } from "react-bootstrap";
 
 class Page17 extends Component {
   page = (number) => {
@@ -18,8 +17,8 @@ class Page17 extends Component {
   render() {
     const { taskName, taskDate, handleChange,taskDesc } = this.props;
     return (
-      <div>
-        <h1>Terminvereinbarung</h1>
+      <Container>
+        <h3>Terminvereinbarung</h3>
         <p>
           Haben Sie einen präferierten Wochentag, an dem es Ihnen optimal passen
           würde? Haben Sie auch eine präferierte Uhrzeit?
@@ -84,7 +83,7 @@ class Page17 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

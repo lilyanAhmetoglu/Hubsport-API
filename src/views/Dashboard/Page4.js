@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
+import { Form ,Container } from "react-bootstrap";
 
 class Page4 extends Component {
   page = (number) => {
@@ -17,8 +17,8 @@ class Page4 extends Component {
   render() {
     const { question1, handleChange } = this.props;
     return (
-      <div>
-        <h1>Einleitung</h1>
+      <Container>
+        <h3>Einleitung</h3>
         <p>
           Hallo [HERR oder FRAU], hier ist [Max Mustermann] von der "Muster
           GmbH". Ich grüße Sie.
@@ -71,7 +71,7 @@ class Page4 extends Component {
             Next »
           </button>
         )}
-      </div>
+      </Container>
     );
   }
 }

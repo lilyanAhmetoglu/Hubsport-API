@@ -25,7 +25,12 @@ export default class Intorduction extends Component {
     } = this.props;
     return (
       <Container>
-        <h4>Bestehender Kontakt</h4>
+        <h3>Bestehender Kontakt</h3>
+        <p>
+          Wenn du schon weißt, wen du anrufen möchtest, wähle bitte deine
+          Kontaktperson, (sofern du keine konkrete Ansprechperson hast, klicke
+          „next“)
+        </p>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>Please choose the company?</Form.Label>
           <Form.Control

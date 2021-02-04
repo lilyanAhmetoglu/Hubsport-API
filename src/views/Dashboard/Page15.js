@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
 class Page15 extends Component {
   page = (number) => {
@@ -16,10 +15,9 @@ class Page15 extends Component {
     this.props.prevStep();
   };
   render() {
-    const { handleChange } = this.props;
     return (
-      <div>
-        <h1>Bei Nicht-Eignung Absage und Frage nach Empfehlung</h1>
+      <Container>
+        <h3>Bei Nicht-Eignung Absage und Frage nach Empfehlung</h3>
         <p>
           "Tut mir leid, aber aktuell können wir Ihnen da leider nicht helfen.
           Darf ich Ihnen noch eine kurze Frage stellen:
@@ -47,7 +45,7 @@ class Page15 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

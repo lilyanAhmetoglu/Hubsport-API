@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
+import { Form ,Container} from "react-bootstrap";
 
 class Page11 extends Component {
   page = (number) => {
@@ -17,11 +17,11 @@ class Page11 extends Component {
   render() {
     const { question4, handleChange } = this.props;
     return (
-      <div>
-        <h1>
+      <Container>
+        <h3>
           Wenn nach diesen Behandlungen keine Aussage vom Kunden kommt oder das
           Budget zu niedrig ist:
-        </h1>
+        </h3>
 
         <p>
           "Wir haben in der Vergangenheit festgestellt, dass eine Investition
@@ -76,7 +76,7 @@ class Page11 extends Component {
             Next »
           </button>
         )}
-      </div>
+      </Container>
     );
   }
 }

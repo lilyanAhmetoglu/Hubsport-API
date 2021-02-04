@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+
+import { Container } from "react-bootstrap";
 
 class Page10 extends Component {
   continue = (e) => {
@@ -14,9 +14,8 @@ class Page10 extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Warum willst du das wissen?</h1>
-
+      <Container>
+        <h3>Warum willst du das wissen?</h3>
         <p>
           "Damit ich Sie bestmöglich beraten kann, muss ich wissen, wie viel Sie
           aktuell tatsächlich investieren können, weil [konzeption, Equipment,
@@ -34,7 +33,7 @@ class Page10 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

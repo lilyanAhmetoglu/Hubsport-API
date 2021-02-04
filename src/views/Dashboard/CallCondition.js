@@ -26,21 +26,18 @@ export default class CallCondition extends Component {
 
   render() {
     const {
-      name,
-      position,
+
       handleChange,
-      introduction,
+      kind,
       newold,
-      email,
-      phone,
-      companyName,
+
     } = this.props;
     return (
       <Container>
-        <h4>Call conditions</h4>
+        <h3>Anrufbedingungen</h3>
 
         <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Who will you call?</Form.Label>
+          <Form.Label>1.Wen möchtest du anrufen?</Form.Label>
           <Form.Control
             as="select"
             name="newold"
@@ -48,17 +45,17 @@ export default class CallCondition extends Component {
             onChange={handleChange("newold")}
           >
             <option value="">Choose</option>
-            <option value="new">New Contact</option>
-            <option value="old">Existing Contact</option>
+            <option value="new">Neuer Kontak</option>
+            <option value="old">Bestehendes Unternehmen</option>
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>Um was für eine Art Anruf handelt es sich?</Form.Label>
           <Form.Control
             as="select"
-            name="introduction"
-            value={introduction}
-            onChange={handleChange("introduction")}
+            name="kind"
+            value={kind}
+            onChange={handleChange("kind")}
           >
             <option value="">Choose</option>
             <option value="erstkontakt ">Erstkontakt </option>

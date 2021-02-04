@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+
+import { Container } from "react-bootstrap";
 
 class Page8 extends Component {
   continue = (e) => {
@@ -14,8 +14,8 @@ class Page8 extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Beratungsgespräch</h1>
+      <Container>
+        <h3>Beratungsgespräch</h3>
         <p>
           <strong>Wenn Website noch nicht bekannt:</strong>
         </p>
@@ -82,7 +82,7 @@ class Page8 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

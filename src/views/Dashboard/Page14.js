@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import { Form,Container } from "react-bootstrap";
 
 class Page14 extends Component {
   page = (number) => {
@@ -18,8 +17,8 @@ class Page14 extends Component {
   render() {
     const { question7, handleChange } = this.props;
     return (
-      <div>
-        <h1>Wenn dies nicht möglich ist, dann:</h1>
+      <Container>
+        <h3>Wenn dies nicht möglich ist, dann:</h3>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
             {" "}
@@ -59,7 +58,7 @@ class Page14 extends Component {
             Next »
           </button>
         )}
-      </div>
+      </Container>
     );
   }
 }

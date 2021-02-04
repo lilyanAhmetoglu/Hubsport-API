@@ -100,10 +100,16 @@ p {
   label{
     text-align: left;
   }
-  
-  .theform{
+  h3{
     text-align: center;
+    padding-bottom: 30px;
+  }
+  .theform{
+    text-align: left;
   }
   .theform h6{
     padding-top: 40px;
+  }
+  .container{
+    margin-top: 40px;
   }

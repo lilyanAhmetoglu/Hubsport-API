@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 class Page19 extends Component {
   continue = (e) => {
@@ -14,8 +13,8 @@ class Page19 extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Telefonat beenden / Prozess abschließen</h1>
+      <Container>
+        <h3>Telefonat beenden / Prozess abschließen</h3>
         <p>
           "Ich bedanke mich für das freundliche Telefonat und wünsche Ihnen
           einen schönen Tag/Woche/Wochenende/Urlaub."
@@ -30,7 +29,7 @@ class Page19 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

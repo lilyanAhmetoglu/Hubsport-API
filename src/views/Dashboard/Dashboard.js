@@ -437,12 +437,16 @@ export default class Dashboard extends Component {
           email={email}
           phone={phone}
           contactperson={contactperson}
-          introduction={introduction}
-          contactperson={contactperson}
-          meeting_with_expert={meeting_with_expert}
-          later_email={later_email}
-          task_note={task_note}
-          task_deadline={task_deadline}
+          question1={question1}
+          question2={question2}
+          question3={question3}
+          question4={question4}
+          question5={question5}
+          question6={question6}
+          question7={question7}
+          taskName={taskName}
+          taseDate={taskDate}
+          taskDesc={taskDesc}
           prevStep={this.prevStep}
           nextStep={this.nextStep}
         />

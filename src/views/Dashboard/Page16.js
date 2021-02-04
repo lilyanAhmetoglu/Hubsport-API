@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 class Page16 extends Component {
   continue = (e) => {
@@ -14,8 +13,8 @@ class Page16 extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>Entscheidende Frage</h1>
+      <Container>
+        <h3>Entscheidende Frage</h3>
         <p>
           "Werden Sie am Ende allein entscheiden, oder gibt esnoch jemanden, mit
           dem Sie sich abstimmen müssen?"
@@ -42,7 +41,7 @@ class Page16 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

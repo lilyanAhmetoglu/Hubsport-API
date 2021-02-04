@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { NearMeOutlined } from "@material-ui/icons";
-import { Form } from "react-bootstrap";
+import { Form ,Container} from "react-bootstrap";
 
 class Page18 extends Component {
   continue = (e) => {
@@ -15,8 +14,8 @@ class Page18 extends Component {
   render() {
     const { taskName, taskDate, handleChange ,taskDesc} = this.props;
     return (
-      <div>
-        <h1>Kein Interresse an einem Film</h1>
+      <Container>
+        <h3>Kein Interresse an einem Film</h3>
         <p>
           "Dann muss ein Missverständnis vorliegen und unser Geschäftsführer
           wird sich noch einmal persönlich bei Ihnen melden, ist das in Ordnung
@@ -59,7 +58,7 @@ class Page18 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }

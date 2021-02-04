@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Container } from "react-bootstrap";
 class Page6 extends Component {
   continue = (e) => {
     e.preventDefault();
@@ -12,10 +12,10 @@ class Page6 extends Component {
   };
   render() {
     return (
-      <div>
-        <h1>
+      <Container>
+        <h3>
           Ich wollte mich eigentlich nur erstmal nach dem Preis erkundigen.
-        </h1>
+        </h3>
         <p>
           "Herr/Frau XXX, dazu kommen wir auch noch in diesem Gespräch. Wir
           benötigen lediglich vorab noch ein paar Informationen, um den genauen
@@ -32,7 +32,7 @@ class Page6 extends Component {
         >
           Next »
         </button>
-      </div>
+      </Container>
     );
   }
 }
