@@ -203,6 +203,8 @@ app.use(express.static(__dirname));
 app.get("/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
-app.listen(3001, () => {
+const port = process.env.PORT || 3001;
+app.listen(port, () =>{
   console.log("Server is listening on port: 3001");
 });
+
