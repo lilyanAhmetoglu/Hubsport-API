@@ -499,7 +499,7 @@ export default class Dashboard extends Component {
                 <Editor
                   value={note}
                   init={{
-                    height: 500,
+                    height: 1000,
                     menubar: false,
                   }}
                   onEditorChange={this.handleEditorChange}
