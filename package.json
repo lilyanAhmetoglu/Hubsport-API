@@ -32,7 +32,7 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "dev": "concurrently \"node server.js \" \"npm run start\"",
