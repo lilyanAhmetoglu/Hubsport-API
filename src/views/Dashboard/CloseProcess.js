@@ -11,7 +11,15 @@ export default class CloseProcess extends Component {
     this.props.prevStep();
   };
   render() {
-    const { name, companyName, position, email, phone,handleChange } = this.props;
+    const {
+      name,
+      companyName,
+      position,
+      email,
+      phone,
+      handleChange,
+      newold,
+    } = this.props;
     return (
       <Container>
         <h3>Kontaktinformation</h3>
@@ -46,12 +54,23 @@ export default class CloseProcess extends Component {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>E-Mail:</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="E-Mail"
-            value={email}
-            onChange={handleChange("email")}
-          />
+          {newold === "new" && (
+            <Form.Control
+              type="email"
+              placeholder="E-Mail"
+              value={email}
+              onChange={handleChange("email")}
+              required
+            />
+          )}
+          {newold === "old" && (
+            <Form.Control
+              type="email"
+              placeholder="E-Mail"
+              value={email}
+              onChange={handleChange("email")}
+            />
+          )}
         </Form.Group>
         <Form.Group>
           <Form.Label>Telefonnummer :</Form.Label>

@@ -311,6 +311,7 @@ export default class Dashboard extends Component {
           prevStep={this.prevStep}
           nextStep={this.nextStep}
           name={name}
+          newold={newold}
           position={position}
           companyName={companyName}
           email={email}
@@ -462,17 +463,27 @@ export default class Dashboard extends Component {
       );
   };
   componentDidMount() {
-    Server.getCompanies().then((res) => {
-      let respoo = JSON.parse(res.data.body);
-      console.log(respoo);
-      const companies = respoo.companies;
-      this.setState({ companies });
-    });
-    Server.getContacts().then((res) => {
-      let respoo = JSON.parse(res.data.body);
-      const contacts = respoo.contacts;
-      this.setState({ contacts });
-    });
+    Server.getCompanies()
+      .then((res) => {
+        let respoo = JSON.parse(res.data.body);
+        console.log(respoo);
+        const companies = respoo.companies;
+        this.setState({ companies });
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
+    Server.getContacts()
+      .then((res) => {
+        let respoo = JSON.parse(res.data.body);
+        const contacts = respoo.contacts;
+        this.setState({ contacts });
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
   }
   render() {
     const { step, note } = this.state;
