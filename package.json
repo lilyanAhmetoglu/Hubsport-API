@@ -2,6 +2,8 @@
   "name": "qsales-fe",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
+  "homepage":".",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -30,7 +32,7 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "dev": "concurrently \"node server.js \" \"npm run start\"",
