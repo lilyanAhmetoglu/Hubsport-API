@@ -60,7 +60,7 @@ class Page17 extends Component {
           <Form.Control
             type="datetime-local"
             value={taskDate}
-            placeholder="Task Name"
+            placeholder="Task date and time"
             onChange={handleChange("taskDate")}
           />
         </Form.Group>

@@ -33,9 +33,9 @@ class Page18 extends Component {
         <Form.Group>
           <Form.Label>Terminvereinbarung</Form.Label>
           <Form.Control
-            type="text"
+            type="datetime-local"
             value={taskDate}
-            placeholder="Task Name"
+            placeholder="Task Date and time"
             onChange={handleChange("taskDate")}
           />
         </Form.Group>
