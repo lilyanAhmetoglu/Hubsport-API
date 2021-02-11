@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import {
+  Container,
+  DropdownButton,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 class Page6 extends Component {
+  page = (number) => {
+    this.props.goToStep(number);
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -21,10 +29,18 @@ class Page6 extends Component {
           benötigen lediglich vorab noch ein paar Informationen, um den genauen
           Rahmen festzulegen".
         </p>
-
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(3)}>Schritt 3</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(4)}>Schritt 4</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(5)}>Schritt 5</Dropdown.Item>
+        </DropdownButton>
         <button
           type="button"
           className="btn btn-success"

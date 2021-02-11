@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React, { Component,DropdownButton,
+  Dropdown,
+  ButtonGroup, } from "react";
 
 export default class Conclusion extends Component {
+  page = (number) => {
+    this.props.goToStep(number);
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -12,7 +17,7 @@ export default class Conclusion extends Component {
   render() {
     const {
       name,
-      position,
+      domain,
       contactperson,
       companyName,
       phone,
@@ -34,7 +39,7 @@ export default class Conclusion extends Component {
 
     return (
       <div>
-        <h3>Here is the information you entered:</h3>
+        <h3>Zusammenfassung</h3>
         <p> Wen möchtest du anrufen?</p>
         <b>{newold}</b>
         <hr />
@@ -47,7 +52,7 @@ export default class Conclusion extends Component {
           <div>
             <p>Full Name : {name}</p>
             <p>Companny Name : {companyName}</p>
-            <p>Postion : {position}</p>
+            <p>Postion : {domain}</p>
             <p>Email Address : {email}</p>
             <p>Phone Number : {phone}</p>
           </div>
@@ -121,9 +126,52 @@ export default class Conclusion extends Component {
         <b>{taskDate}</b>
         <div>Task description</div>
         <b>{taskDesc}</b>
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(3)}>Schritt 3</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(4)}>Schritt 4</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(5)}>Schritt 5</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(6)}>Schritt 6</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(7)}>Schritt 7</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(8)}>Schritt 8</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(9)}>Schritt 9</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(10)}>
+            Schritt 10
+          </Dropdown.Item>{" "}
+          <Dropdown.Item onClick={() => this.page(11)}>
+            Schritt 11
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(12)}>
+            Schritt 12
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(13)}>
+            Schritt 13
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(14)}>
+            Schritt 14
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(15)}>
+            Schritt 15
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(16)}>
+            Schritt 16
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(17)}>
+            Schritt 17
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(18)}>
+            Schritt 18
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(19)}>
+            Schritt 19
+          </Dropdown.Item>
+        </DropdownButton>
       </div>
     );
   }

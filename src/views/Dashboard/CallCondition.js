@@ -37,15 +37,15 @@ export default class CallCondition extends Component {
         <h3>Anrufbedingungen</h3>
 
         <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>1.Wen möchtest du anrufen?</Form.Label>
+          <Form.Label>Wen möchtest du anrufen?</Form.Label>
           <Form.Control
             as="select"
             name="newold"
             value={newold}
             onChange={handleChange("newold")}
           >
-            <option value="">Choose</option>
-            <option value="new">Neuer Kontak</option>
+            <option value="">Auswählen</option>
+            <option value="new">Neuer Kontakt</option>
             <option value="old">Bestehendes Unternehmen</option>
           </Form.Control>
         </Form.Group>
@@ -57,7 +57,7 @@ export default class CallCondition extends Component {
             value={kind}
             onChange={handleChange("kind")}
           >
-            <option value="">Choose</option>
+            <option value="">Auswählen</option>
             <option value="erstkontakt ">Erstkontakt </option>
             <option value="follow-up  ">Follow-up </option>
             <option value="kundenanruf ">Kundenanruf </option>

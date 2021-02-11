@@ -32,13 +32,13 @@ export default class Intorduction extends Component {
           „next“)
         </p>
         <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Please choose the company?</Form.Label>
+          <Form.Label>1.Welches Unternehmen möchtest du anrufen?</Form.Label>
           <Form.Control
             as="select"
             value={company}
             onChange={handleChange("company")}
           >
-            <option value="">Choose</option>
+            <option value="">Auswählen</option>
             {companies.map((company, index) => (
               <option
                 key={index}
@@ -53,15 +53,14 @@ export default class Intorduction extends Component {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
-            If you already know who you will call, please chose your contact
-            person (if you don't have a specific contact person go next):
+          2.Welchen Ansprechpartner möchtest du kontaktieren? 
           </Form.Label>
           <Form.Control
             as="select"
             value={contactperson}
             onChange={handleChange("contactperson")}
           >
-            <option value="">Choose</option>
+            <option value="">Auswählen</option>
             {contacts.map((contact, index) => (
               <option key={index} value={contact.vid}>
                 {Object.values(contact.properties)[0].value}{" "}

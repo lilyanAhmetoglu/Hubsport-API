@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Form ,Container } from "react-bootstrap";
+import {
+  Form,
+  Container,
+  DropdownButton,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 
 class Page4 extends Component {
   page = (number) => {
@@ -41,9 +47,16 @@ class Page4 extends Component {
             <option value="Ich habe keine Zeit">Ich habe keine Zeit</option>
           </Form.Control>
         </Form.Group>
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(3)}>Schritt 3</Dropdown.Item>
+        </DropdownButton>
         {this.props.question1 === "Nein" && (
           <button
             type="button"

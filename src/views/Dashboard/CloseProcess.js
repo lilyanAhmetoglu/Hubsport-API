@@ -1,6 +1,15 @@
 import React, { Component } from "react";
-import { Form, Container, Col, Row } from "react-bootstrap";
+import {
+  Form,
+  Container,
+  DropdownButton,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 export default class CloseProcess extends Component {
+  page = (number) => {
+    this.props.goToStep(number);
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -14,7 +23,7 @@ export default class CloseProcess extends Component {
     const {
       name,
       companyName,
-      position,
+      domain,
       email,
       phone,
       handleChange,
@@ -28,7 +37,7 @@ export default class CloseProcess extends Component {
           <Form.Label>Name:</Form.Label>
           <Form.Control
             type="text"
-            placeholder="name"
+            placeholder="Name"
             value={name}
             onChange={handleChange("name")}
           />
@@ -47,30 +56,20 @@ export default class CloseProcess extends Component {
           <Form.Label>Position:</Form.Label>
           <Form.Control
             type="text"
-            placeholder=" position"
-            value={position}
-            onChange={handleChange("position")}
+            placeholder=" URL"
+            value={domain}
+            onChange={handleChange("domain")}
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>E-Mail:</Form.Label>
-          {newold === "new" && (
-            <Form.Control
-              type="email"
-              placeholder="E-Mail"
-              value={email}
-              onChange={handleChange("email")}
-              required
-            />
-          )}
-          {newold === "old" && (
-            <Form.Control
-              type="email"
-              placeholder="E-Mail"
-              value={email}
-              onChange={handleChange("email")}
-            />
-          )}
+          <Form.Control
+            type="email"
+            placeholder="E-Mail"
+            value={email}
+            onChange={handleChange("email")}
+            required
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Telefonnummer :</Form.Label>
@@ -81,9 +80,16 @@ export default class CloseProcess extends Component {
             onChange={handleChange("phone")}
           />
         </Form.Group>
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+        </DropdownButton>
         <button
           type="button"
           className="btn btn-success"

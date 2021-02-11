@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Form,Container } from "react-bootstrap";
+import {
+  Form,
+  Container,
+  DropdownButton,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 
 class Page17 extends Component {
   page = (number) => {
@@ -15,7 +21,7 @@ class Page17 extends Component {
     this.props.prevStep();
   };
   render() {
-    const { taskName, taskDate, handleChange,taskDesc } = this.props;
+    const { taskName, taskDate, handleChange, taskDesc } = this.props;
     return (
       <Container>
         <h3>Terminvereinbarung</h3>
@@ -73,9 +79,43 @@ class Page17 extends Component {
             onChange={handleChange("taskDesc")}
           />
         </Form.Group>
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(3)}>Schritt 3</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(4)}>Schritt 4</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(5)}>Schritt 5</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(6)}>Schritt 6</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(7)}>Schritt 7</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(8)}>Schritt 8</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(9)}>Schritt 9</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(10)}>
+            Schritt 10
+          </Dropdown.Item>{" "}
+          <Dropdown.Item onClick={() => this.page(11)}>
+            Schritt 11
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(12)}>
+            Schritt 12
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(13)}>
+            Schritt 13
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(14)}>
+            Schritt 14
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(15)}>
+            Schritt 15
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(16)}>
+            Schritt 16
+          </Dropdown.Item>
+        </DropdownButton>
         <button
           type="button"
           className="btn btn-success"

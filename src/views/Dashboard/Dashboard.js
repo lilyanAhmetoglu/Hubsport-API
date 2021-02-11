@@ -38,7 +38,7 @@ export default class Dashboard extends Component {
     companyName: "",
     companyDiscription: "",
     name: "",
-    position: "",
+    domain: "",
     email: "",
     newold: "",
     kind: "",
@@ -118,6 +118,7 @@ export default class Dashboard extends Component {
           { property: "email", value: this.state.email },
           { property: "firstname", value: this.state.name },
           { property: "phone", value: this.state.phone },
+          { property: "website", value: this.state.domain },
           {
             property: "company",
             value: this.state.companyName,
@@ -259,7 +260,7 @@ export default class Dashboard extends Component {
       companyName,
       companyDiscription,
       name,
-      position,
+      domain,
       newold,
       kind,
       email,
@@ -310,9 +311,10 @@ export default class Dashboard extends Component {
           handleChange={this.handleChange}
           prevStep={this.prevStep}
           nextStep={this.nextStep}
+          goToStep={this.goToStep}
           name={name}
           newold={newold}
-          position={position}
+          domain={domain}
           companyName={companyName}
           email={email}
           phone={phone}
@@ -341,11 +343,29 @@ export default class Dashboard extends Component {
         />
       );
     if (step === 6)
-      return <Page6 prevStep={this.prevStep} nextStep={this.nextStep} />;
+      return (
+        <Page6
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
     if (step === 7)
-      return <Page7 prevStep={this.prevStep} nextStep={this.nextStep} />;
+      return (
+        <Page7
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
     if (step === 8)
-      return <Page8 prevStep={this.prevStep} nextStep={this.nextStep} />;
+      return (
+        <Page8
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
     if (step === 9)
       return (
         <Page9
@@ -357,7 +377,13 @@ export default class Dashboard extends Component {
         />
       );
     if (step === 10)
-      return <Page10 prevStep={this.prevStep} nextStep={this.nextStep} />;
+      return (
+        <Page10
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
     if (step === 11)
       return (
         <Page11
@@ -408,7 +434,13 @@ export default class Dashboard extends Component {
         />
       );
     if (step === 16)
-      return <Page16 prevStep={this.prevStep} nextStep={this.nextStep} />;
+      return (
+        <Page16
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
     if (step === 17)
       return (
         <Page17
@@ -426,6 +458,7 @@ export default class Dashboard extends Component {
         <Page18
           prevStep={this.prevStep}
           nextStep={this.nextStep}
+          goToStep={this.goToStep}
           taskName={this.taskName}
           taseDate={this.taskDate}
           taskDesc={this.taskDesc}
@@ -433,13 +466,19 @@ export default class Dashboard extends Component {
         />
       );
     if (step === 19)
-      return <Page19 prevStep={this.prevStep} nextStep={this.nextStep} />;
+      return (
+        <Page19
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          goToStep={this.goToStep}
+        />
+      );
     if (step === 20)
       return (
         <Conclusion
           newold={newold}
           name={name}
-          position={position}
+          domain={domain}
           kind={kind}
           company={company}
           companyName={companyName}
@@ -457,6 +496,7 @@ export default class Dashboard extends Component {
           taskName={taskName}
           taseDate={taskDate}
           taskDesc={taskDesc}
+          goToStep={this.goToStep}
           prevStep={this.prevStep}
           nextStep={this.nextStep}
         />
@@ -492,9 +532,8 @@ export default class Dashboard extends Component {
         <div className="row ">
           <div className="col-md-8 ">
             <div className="theform">
-              <h6> Step {step} of 20.</h6>
+              <h6> Schritt {step} von 20.</h6>
               <div className="App">
-                <div className="App-title">Timers Demo</div>
                 <div className="Timers">
                   <Stopwatch />
                 </div>

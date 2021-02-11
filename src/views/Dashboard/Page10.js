@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 
-import { Container } from "react-bootstrap";
+import {
+  Container,
+  DropdownButton,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 
 class Page10 extends Component {
+  page = (number) => {
+    this.props.goToStep(number);
+  };
+  cont
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -23,9 +32,22 @@ class Page10 extends Component {
           am Ende nur umsetzbar ist, wenn Sie auch investieren können."
         </p>
 
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(3)}>Schritt 3</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(4)}>Schritt 4</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(5)}>Schritt 5</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(6)}>Schritt 6</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(7)}>Schritt 7</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(8)}>Schritt 8</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(9)}>Schritt 9</Dropdown.Item>
+        </DropdownButton>
         <button
           type="button"
           className="btn btn-success"

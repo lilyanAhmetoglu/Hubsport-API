@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 
-import { Container } from "react-bootstrap";
+import {
+  Container,
+  DropdownButton,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 
 class Page8 extends Component {
+  page = (number) => {
+    this.props.goToStep(number);
+  };
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -26,19 +34,16 @@ class Page8 extends Component {
         <p>
           <strong>Wenn Kunde noch kein Ziel vor Augen hat:</strong>{" "}
         </p>
-        <p>
-          "Wir haben in der Vergangenheit die Erfahrung gemacht",
-         
-        </p>
+        <p>"Wir haben in der Vergangenheit die Erfahrung gemacht",</p>
         <ul>
-            <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
-            <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
-            <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
-            <li>
-              dass unsere Kunden eine bessere Wahrnehmung gegenüber Ihren Kunden
-              anstreben"
-            </li>
-          </ul>
+          <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
+          <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
+          <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
+          <li>
+            dass unsere Kunden eine bessere Wahrnehmung gegenüber Ihren Kunden
+            anstreben"
+          </li>
+        </ul>
         <p>"Welches der genannten Punkte ist für Sie am relevantesten?"</p>
         <div className="Notizen">
           <p>
@@ -46,9 +51,7 @@ class Page8 extends Component {
           </p>
         </div>
 
-        <h2>
-          <strong>Vorgesprächs-Frame</strong>
-        </h2>
+        <h3>Vorgesprächs-Frame</h3>
 
         <p>
           "In diesem Gespräch geht es darum heraus zu finden welches Produkt
@@ -57,9 +60,7 @@ class Page8 extends Component {
         </p>
 
         <h3>
-          <strong>
-            Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)
-          </strong>
+          Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)
         </h3>
 
         <p>
@@ -72,9 +73,20 @@ class Page8 extends Component {
           "Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
           [Ja, abholen]
         </p>
-        <button type="button" className="btn btn-warning" onClick={this.back}>
-          « Back
-        </button>
+        <DropdownButton
+          as={ButtonGroup}
+          title="« Back"
+          id="bg-nested-dropdown"
+          variant="warning"
+        >
+          <Dropdown.Item onClick={() => this.page(1)}>Schritt 1</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(2)}>Schritt 2</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(3)}>Schritt 3</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(4)}>Schritt 4</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(5)}>Schritt 5</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(6)}>Schritt 6</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.page(7)}>Schritt 7</Dropdown.Item>
+        </DropdownButton>
         <button
           type="button"
           className="btn btn-success"

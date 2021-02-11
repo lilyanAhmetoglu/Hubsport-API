@@ -12,7 +12,7 @@ export default class Layout extends Component {
         <header className="bck_b_light">
           <Navbar expand="lg" variant="light" bg="light">
             <Container>
-              <Navbar.Brand href="#">QSales Telephone Guideline.</Navbar.Brand>
+              <Navbar.Brand href="/qsales">QSales</Navbar.Brand>
               {JSON.parse(sessionStorage.getItem("token")) && (
                 <Nav.Link>
                   <Button variant="outline-danger" onClick={this.logout}>
