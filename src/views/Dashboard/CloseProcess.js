@@ -53,7 +53,7 @@ export default class CloseProcess extends Component {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Position:</Form.Label>
+          <Form.Label>Website:</Form.Label>
           <Form.Control
             type="text"
             placeholder=" URL"
