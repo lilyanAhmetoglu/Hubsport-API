@@ -2,8 +2,8 @@ import axios from "axios";
 //const { CLIENT_ID, BASE_URL, SCOPES, CLIENT_SECRET } = process.env;
 const CLIENT_ID = "9ebab9fa-1b06-4191-a849-5f94590debf7";
 const BASE_URL = "https://app.hubspot.com/oauth/authorize";
-const REDIRECT_URL = "https://qimia-sales.herokuapp.com/";
-const REDIRECT_URI = "https://qimia-sales.herokuapp.com/auth-callback";
+const REDIRECT_URL = "http://localhost:3000/";
+const REDIRECT_URI = "http://localhost:3000/auth-callback";
 const SCOPES = "contacts automation";
 const CLIENT_SECRET = "8dcf41be-c88c-4de6-9ce4-dec4b1b45e7a";
 class Server {
@@ -25,29 +25,29 @@ class Server {
 
     const headers = {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://qimia-sales.herokuapp.com",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
       "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
       "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
     };
 
-    return axios.post(`https://qimia-sales.herokuapp.com/api/hubspot`, formData);
+    return axios.post(`http://localhost:3001/api/hubspot`, formData);
   }
 
   getContacts() {
     let token = JSON.parse(sessionStorage.getItem("token"));
     //console.log("axios token is "+ token)
-    return axios.get(`https://qimia-sales.herokuapp.com/api/contacts?token=${token}`);
+    return axios.get(`http://localhost:3001/api/contacts?token=${token}`);
   }
   getCompanies() {
     let token = JSON.parse(sessionStorage.getItem("token"));
     //console.log("axios token is "+ token)
-    return axios.get(`https://qimia-sales.herokuapp.com/api/companies?token=${token}`);
+    return axios.get(`http://localhost:3001/api/companies?token=${token}`);
   }
   getCompanyContacts(companyid) {
     let token = JSON.parse(sessionStorage.getItem("token"));
     //console.log("axios token is "+ token)
     return axios.get(
-      `https://qimia-sales.herokuapp.com/api/companycontacts?token=${token}&companyid=${companyid}`
+      `http://localhost:3001/api/companycontacts?token=${token}&companyid=${companyid}`
     );
   }
 
@@ -60,7 +60,7 @@ class Server {
     }*/
     console.log("axios token is "+ JSON.stringify(formData))
     return axios.post(
-      `https://qimia-sales.herokuapp.com/api/company?token=${token}`,formData
+      `http://localhost:3001/api/company?token=${token}`,formData
     );
   }
 
@@ -73,7 +73,7 @@ class Server {
     }*/
     console.log("axios token is "+ JSON.stringify(formData))
     return axios.post(
-      `https://qimia-sales.herokuapp.com/api/contact?token=${token}`,formData
+      `http://localhost:3001/api/contact?token=${token}`,formData
     );
   }
   createNote(Note) {
@@ -85,7 +85,7 @@ class Server {
     }*/
     console.log("axios token is "+ JSON.stringify(formData))
     return axios.post(
-      `https://qimia-sales.herokuapp.com/api/note?token=${token}`,formData
+      `http://localhost:3001/api/note?token=${token}`,formData
     );
   }
   createTask(Task) {
@@ -97,7 +97,7 @@ class Server {
     }*/
     console.log("axios token is "+ JSON.stringify(formData))
     return axios.post(
-      `https://qimia-sales.herokuapp.com/api/task?token=${token}`,formData
+      `http://localhost:3001/api/task?token=${token}`,formData
     );
   }
 }

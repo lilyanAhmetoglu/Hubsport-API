@@ -32,7 +32,7 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "set PORT=3000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "dev": "concurrently \"node server.js \" \"npm run start\"",
