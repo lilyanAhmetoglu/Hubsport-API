@@ -25,9 +25,9 @@ class Page6 extends Component {
           Ich wollte mich eigentlich nur erstmal nach dem Preis erkundigen.
         </h3>
         <p>
-          "Herr/Frau XXX, dazu kommen wir auch noch in diesem Gespräch. Wir
+         <i> "Herr/Frau XXX, dazu kommen wir auch noch in diesem Gespräch. Wir
           benötigen lediglich vorab noch ein paar Informationen, um den genauen
-          Rahmen festzulegen".
+          Rahmen festzulegen".</i>
         </p>
         <DropdownButton
           as={ButtonGroup}

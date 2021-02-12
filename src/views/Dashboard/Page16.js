@@ -24,8 +24,8 @@ class Page16 extends Component {
       <Container>
         <h3>Entscheidende Frage</h3>
         <p>
-          "Werden Sie am Ende allein entscheiden, oder gibt esnoch jemanden, mit
-          dem Sie sich abstimmen müssen?"
+          <i>"Werden Sie am Ende allein entscheiden, oder gibt esnoch jemanden, mit
+          dem Sie sich abstimmen müssen?"</i>
         </p>
 
         <p>
@@ -34,9 +34,9 @@ class Page16 extends Component {
         </p>
 
         <p>
-          "Im nächsten Gespräch wird einer unserer Strategieberater Ihnen eine
+          <i>"Im nächsten Gespräch wird einer unserer Strategieberater Ihnen eine
           mögliche Strategie vorstellen und erklären wie die nächsten Schritte
-          aussehen würden."
+          aussehen würden."</i>
         </p>
 
         <DropdownButton

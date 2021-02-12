@@ -28,8 +28,8 @@ class Page13 extends Component {
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
             {" "}
-            Diese erste Einschätzung ist erstmal ein geschätzter Preisrahmen. In
-            welchem Bereich des eben genannten Rahmens, sehen Sie sich denn?
+            <i>Diese erste Einschätzung ist erstmal ein geschätzter Preisrahmen. In
+            welchem Bereich des eben genannten Rahmens, sehen Sie sich denn?</i>
           </Form.Label>
           <Form.Control
             as="select"

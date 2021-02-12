@@ -31,8 +31,10 @@ class Page11 extends Component {
           zwischen 3.900 EUR-8.500 EUR notwendig ist, um den von Ihnen
           beschriebenen Film zu realisieren."
         </p>
+        <p>
+          <i>"Ist das für Sie möglich?"</i>
+        </p>
         <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label> "Ist das für Sie möglich?"</Form.Label>
           <Form.Control
             as="select"
             name="question4"

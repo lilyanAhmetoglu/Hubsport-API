@@ -24,8 +24,8 @@ class Page19 extends Component {
       <Container>
         <h3>Telefonat beenden / Prozess abschließen</h3>
         <p>
-          "Ich bedanke mich für das freundliche Telefonat und wünsche Ihnen
-          einen schönen Tag/Woche/Wochenende/Urlaub."
+          <i> "Ich bedanke mich für das freundliche Telefonat und wünsche Ihnen
+          einen schönen Tag/Woche/Wochenende/Urlaub."</i>
         </p>
         <DropdownButton
           as={ButtonGroup}

@@ -28,9 +28,9 @@ class Page14 extends Component {
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
             {" "}
-            "Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an,
+           <i>  "Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an,
             die bei einer Investitionssumme von 2.900 EUR liegt, Ist das für Sie
-            möglich?""
+            möglich?"</i>
           </Form.Label>
           <Form.Control
             as="select"

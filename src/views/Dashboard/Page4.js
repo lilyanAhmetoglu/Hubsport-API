@@ -26,15 +26,19 @@ class Page4 extends Component {
       <Container>
         <h3>Einleitung</h3>
         <p>
-          Hallo [HERR oder FRAU], hier ist [Max Mustermann] von der "Muster
-          GmbH". Ich grüße Sie.
+          <i>
+            Hallo [HERR oder FRAU], hier ist [Max Mustermann] von der "Muster
+            GmbH". Ich grüße Sie.
+          </i>
         </p>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>
+        <p>
+          <i>
             Sie haben sich bei uns gemeldet, um herauszufinden, ob Ihnen unsere
             Dienstleistungen im Bereich Video weiterhelfen können, ist das
             richtig?
-          </Form.Label>
+          </i>
+        </p>
+        <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Control
             as="select"
             name="question1"

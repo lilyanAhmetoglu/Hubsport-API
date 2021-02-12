@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   Container,
+  Form,
   DropdownButton,
   Dropdown,
   ButtonGroup,
@@ -20,23 +21,27 @@ class Page15 extends Component {
     this.props.prevStep();
   };
   render() {
+    const { note3, handleChange } = this.props;
     return (
       <Container>
         <h3>Bei Nicht-Eignung Absage und Frage nach Empfehlung</h3>
         <p>
-          "Tut mir leid, aber aktuell können wir Ihnen da leider nicht helfen.
-          Darf ich Ihnen noch eine kurze Frage stellen:
-        </p>
-
-        <p>
-          Wen kennen Sie denn noch, für den ein Film/Video interessant sein
-          könnte? Wenn Sie wen kennen würde, wer wäre das?"
+          <i>"Tut mir leid, aber aktuell können wir Ihnen da leider nicht helfen.
+          Darf ich Ihnen noch eine kurze Frage stellen: Wen kennen Sie denn noch, für den ein Film/Video interessant sein
+          könnte? Wenn Sie wen kennen würde, wer wäre das?"</i> 
         </p>
         <p>Bitte Namen des potenziellen Interessenten angeben</p>
         <div className="Notizen">
-          <p>
-            <strong>Notizen</strong>{" "}
-          </p>
+          <Form.Group>
+            <Form.Label>Notizen</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder=" Notizen hier einfügen"
+              value={note3}
+              onChange={handleChange("note3")}
+            />
+          </Form.Group>
         </div>
 
         <DropdownButton

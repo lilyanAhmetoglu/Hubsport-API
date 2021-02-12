@@ -58,6 +58,10 @@ export default class Dashboard extends Component {
     question1: "",
     //step 5
     question2: "",
+    //step7
+    note1:"",
+    //step8
+    note2:"",
     //step 9
     question3: "",
     //step 11
@@ -68,6 +72,8 @@ export default class Dashboard extends Component {
     question6: "",
     //step 14
     question7: "",
+    //step15
+    note3:"",
     //step17 + step 18
     taskName: "",
     taskDate: "",
@@ -256,7 +262,6 @@ export default class Dashboard extends Component {
   showStep = () => {
     const {
       step,
-      note,
       companyName,
       companyDiscription,
       name,
@@ -277,6 +282,9 @@ export default class Dashboard extends Component {
       question5,
       question6,
       question7,
+      note1,
+      note2,
+      note3,
       taskName,
       taskDate,
       taskDesc,
@@ -356,6 +364,8 @@ export default class Dashboard extends Component {
           prevStep={this.prevStep}
           nextStep={this.nextStep}
           goToStep={this.goToStep}
+          note1={note1}
+          handleChange={this.handleChange}
         />
       );
     if (step === 8)
@@ -364,6 +374,8 @@ export default class Dashboard extends Component {
           prevStep={this.prevStep}
           nextStep={this.nextStep}
           goToStep={this.goToStep}
+          note2={note2}
+          handleChange={this.handleChange}
         />
       );
     if (step === 9)
@@ -431,6 +443,7 @@ export default class Dashboard extends Component {
           nextStep={this.nextStep}
           handleChange={this.handleChange}
           goToStep={this.goToStep}
+          note3={note3}
         />
       );
     if (step === 16)
@@ -449,7 +462,7 @@ export default class Dashboard extends Component {
           handleChange={this.handleChange}
           goToStep={this.goToStep}
           taskName={this.taskName}
-          taseDate={this.taskDate}
+          taskDate={this.taskDate}
           taskDesc={this.taskDesc}
         />
       );
@@ -493,6 +506,9 @@ export default class Dashboard extends Component {
           question5={question5}
           question6={question6}
           question7={question7}
+          note1={note1}
+          note2={note2}
+          note3={note3}
           taskName={taskName}
           taseDate={taskDate}
           taskDesc={taskDesc}

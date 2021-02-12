@@ -27,9 +27,10 @@ class Page12 extends Component {
         <h3>Sobald eine Summe genannt wurde:</h3>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
-            {" "}
-            "Und diesen Betrag sind Sie auch wirklich bereit für Ihren Film zu
-            investieren?"
+            <i>
+              "Und diesen Betrag sind Sie auch wirklich bereit für Ihren Film zu
+              investieren?"
+            </i>
           </Form.Label>
           <Form.Control
             as="select"

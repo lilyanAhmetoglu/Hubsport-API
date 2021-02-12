@@ -26,8 +26,10 @@ class Page17 extends Component {
       <Container>
         <h3>Terminvereinbarung</h3>
         <p>
-          Haben Sie einen präferierten Wochentag, an dem es Ihnen optimal passen
-          würde? Haben Sie auch eine präferierte Uhrzeit?
+          <i>
+            Haben Sie einen präferierten Wochentag, an dem es Ihnen optimal
+            passen würde? Haben Sie auch eine präferierte Uhrzeit?
+          </i>
         </p>
 
         <p>
@@ -36,15 +38,20 @@ class Page17 extends Component {
         </p>
 
         <p>
-          Sie hatten Glück, ich konnte Ihnen noch einen freien Termin bei
-          unserem Geschäftsführer "Mustermann" sichern. Er ist absoluter Experte
-          und hat unsere Firma von Beginn an aufgebaut.
+          <i>
+            {" "}
+            Sie hatten Glück, ich konnte Ihnen noch einen freien Termin bei
+            unserem Geschäftsführer "Mustermann" sichern. Er ist absoluter
+            Experte und hat unsere Firma von Beginn an aufgebaut.
+          </i>
         </p>
 
         <p>
           <strong>Möglichkeiten der Absage durchgeben:</strong>
-          Gibt es einen Grund, der Ihnen spontan einfällt, warum Sie den Termin
-          nicht wahrnehmen könnten? Wenn ja welcher?
+          <i>
+            Gibt es einen Grund, der Ihnen spontan einfällt, warum Sie den
+            Termin nicht wahrnehmen könnten? Wenn ja welcher?
+          </i>
         </p>
 
         <p>

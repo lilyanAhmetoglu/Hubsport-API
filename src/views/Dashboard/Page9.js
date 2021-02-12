@@ -30,7 +30,7 @@ class Page9 extends Component {
         </p>
         <p>
           <strong>Frage 1:</strong>
-          "Bis wann würden Sie denn Ihren Film gerne realisieren?"
+          <i> "Bis wann würden Sie denn Ihren Film gerne realisieren?"</i>
         </p>
 
         <p>
@@ -41,14 +41,20 @@ class Page9 extends Component {
         </p>
 
         <p>
-          "Wenn wir also mit der Konzeption in den nächsten 4 Wochen starten
-          würden, wäre das für Sie möglich?"
+          <i>
+            {" "}
+            "Wenn wir also mit der Konzeption in den nächsten 4 Wochen starten
+            würden, wäre das für Sie möglich?"
+          </i>
         </p>
 
         <p>
           <strong>Frage 2:</strong>
-          "Auf welchen Kanälen soll der Film gezeigt bzw. veröffentlicht
-          werden?"{" "}
+          <i>
+            {" "}
+            "Auf welchen Kanälen soll der Film gezeigt bzw. veröffentlicht
+            werden?"{" "}
+          </i>
         </p>
 
         <p>
@@ -59,17 +65,22 @@ class Page9 extends Component {
         </p>
 
         <p>
-          "Wir benötigen diese Information, damit wir für Sie zur
-          Veröffentlichung Ihres Films, auch die richtige Musiklizenz auswählen
-          können."
+          <i>
+            "Wir benötigen diese Information, damit wir für Sie zur
+            Veröffentlichung Ihres Films, auch die richtige Musiklizenz
+            auswählen können."
+          </i>
         </p>
 
         <p>
           <strong>Frage 3:</strong>
-          "Beinhaltet Ihr Plan auch zusätzlich noch kleine Videos für die
-          Vermarktung auf Social Media? Diese kleinen Teaser ermöglichen Ihnen
-          einen noch stärkereen Fokus auf spezielle Bereiche in Ihrem
-          Unternehmen." [Ja,abholen]
+          <i>
+            {" "}
+            "Beinhaltet Ihr Plan auch zusätzlich noch kleine Videos für die
+            Vermarktung auf Social Media? Diese kleinen Teaser ermöglichen Ihnen
+            einen noch stärkereen Fokus auf spezielle Bereiche in Ihrem
+            Unternehmen." [Ja,abholen]
+          </i>
         </p>
 
         <p>
@@ -80,10 +91,13 @@ class Page9 extends Component {
         </p>
 
         <p>
-          "Wir haben ein Social Media Paket ins Leben gerufen, wo Sie zusätzlich
-          zu Ihrem Masterfilm noch drei zusätzliche kleine Snippets für die
-          Vermarktung auf Social Media bekommen würden, ist das grundsätzlich
-          ein Thema für Sie?"
+          <i>
+            {" "}
+            "Wir haben ein Social Media Paket ins Leben gerufen, wo Sie
+            zusätzlich zu Ihrem Masterfilm noch drei zusätzliche kleine Snippets
+            für die Vermarktung auf Social Media bekommen würden, ist das
+            grundsätzlich ein Thema für Sie?"
+          </i>
         </p>
 
         <p>
@@ -94,20 +108,26 @@ class Page9 extends Component {
         </p>
 
         <p>
-          "Ich würde es mir erst einmal als Option vermerken und wrden es uns
-          dann im zweiten Schritt noch einmal genauer anschauen, ja?" [Ja,
-          abholen]
+          <i>
+            {" "}
+            "Ich würde es mir erst einmal als Option vermerken und wrden es uns
+            dann im zweiten Schritt noch einmal genauer anschauen, ja?" [Ja,
+            abholen]
+          </i>
         </p>
 
         <p>
           <strong>Harte Fragen:</strong>
         </p>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>
+
+        <p>
+          <i>
             {" "}
             "Wie viel Budget haben Sie aktuell für die Realisierung Ihres Films
             zur Verfügung?"
-          </Form.Label>
+          </i>
+        </p>
+        <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Control
             as="select"
             name="question3"

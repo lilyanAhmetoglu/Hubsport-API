@@ -26,9 +26,12 @@ class Page5 extends Component {
       <Container>
         <h3>Ich habe micht nicht beworben</h3>
         <p>
-          Sie möchten doch einen Imagefilm/Produktfilm/Erklärfilm [Film des
-          Kunden bei der Eintragung], oder? Wenn <strong>"NEIN!" dann:</strong>{" "}
-          Video ist aber grundsätzlich noch Thema bei Ihnen, oder?
+          <i>
+            Sie möchten doch einen Imagefilm/Produktfilm/Erklärfilm [Film des
+            Kunden bei der Eintragung], oder?
+          </i>{" "}
+          Wenn <strong>"NEIN!" dann:</strong> Video ist aber grundsätzlich noch
+          Thema bei Ihnen, oder?
         </p>
 
         <p>
@@ -36,11 +39,14 @@ class Page5 extends Component {
           eigentlich gar nicht"
         </p>
         <p>
-          "Ja, das kann ich gut verstehen, also wir sind "Musterfirma" eine
-          FIlmproduktionsfirma aus "Ort" und haben uns auf die Medienberatung
-          spezialisiert. Ich lasse Ihnen nach dem Gespräch gerne noch einmal
-          unsere Website zukommen und im Fachgespräch lernen Sie uns dann
-          richtig kennen."
+          <i>
+            {" "}
+            "Ja, das kann ich gut verstehen, also wir sind "Musterfirma" eine
+            FIlmproduktionsfirma aus "Ort" und haben uns auf die Medienberatung
+            spezialisiert. Ich lasse Ihnen nach dem Gespräch gerne noch einmal
+            unsere Website zukommen und im Fachgespräch lernen Sie uns dann
+            richtig kennen."
+          </i>
         </p>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>

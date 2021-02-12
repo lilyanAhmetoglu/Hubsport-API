@@ -26,9 +26,9 @@ class Page18 extends Component {
       <Container>
         <h3>Kein Interresse an einem Film</h3>
         <p>
-          "Dann muss ein Missverständnis vorliegen und unser Geschäftsführer
+          <i> "Dann muss ein Missverständnis vorliegen und unser Geschäftsführer
           wird sich noch einmal persönlich bei Ihnen melden, ist das in Ordnung
-          für Sie?"
+          für Sie?"</i>
         </p>
         <Form.Group>
           <Form.Label>Aufgabe erstellen</Form.Label>

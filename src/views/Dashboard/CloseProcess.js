@@ -27,7 +27,6 @@ export default class CloseProcess extends Component {
       email,
       phone,
       handleChange,
-      newold,
     } = this.props;
     return (
       <Container>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import {
   Container,
+  Form,
   DropdownButton,
   Dropdown,
   ButtonGroup,
@@ -21,6 +22,7 @@ class Page8 extends Component {
     this.props.prevStep();
   };
   render() {
+    const { note2, handleChange } = this.props;
     return (
       <Container>
         <h3>Beratungsgespräch</h3>
@@ -28,50 +30,80 @@ class Page8 extends Component {
           <strong>Wenn Website noch nicht bekannt:</strong>
         </p>
         <p>
-          "Haben Sie eine Website, die wir uns vorab schon einmal anssehen
-          können?"
+          <i>
+            "Haben Sie eine Website, die wir uns vorab schon einmal anssehen
+            können?"
+          </i>
         </p>
         <p>
           <strong>Wenn Kunde noch kein Ziel vor Augen hat:</strong>{" "}
         </p>
-        <p>"Wir haben in der Vergangenheit die Erfahrung gemacht",</p>
+        <p>
+          <i>"Wir haben in der Vergangenheit die Erfahrung gemacht"</i>
+        </p>
         <ul>
-          <li>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</li>
-          <li>dass unsere Kunden sich vom Markt abheben wollen"</li>
-          <li>dass unsere Kunden attraktiver für Bewerber seien wollen"</li>
           <li>
-            dass unsere Kunden eine bessere Wahrnehmung gegenüber Ihren Kunden
-            anstreben"
+            <i>dass unsere Kunden eine höhere SIchtbarkeit anstreben!"</i>
+          </li>
+          <li>
+            <i>dass unsere Kunden sich vom Markt abheben wollen"</i>
+          </li>
+          <li>
+            <i>dass unsere Kunden attraktiver für Bewerber seien wollen"</i>
+          </li>
+          <li>
+            <i>
+              {" "}
+              dass unsere Kunden eine bessere Wahrnehmung gegenüber Ihren Kunden
+              anstreben"
+            </i>
           </li>
         </ul>
-        <p>"Welches der genannten Punkte ist für Sie am relevantesten?"</p>
+        <p>
+          <i>"Welches der genannten Punkte ist für Sie am relevantesten?"</i>
+        </p>
         <div className="Notizen">
-          <p>
-            <strong>Notizen</strong>{" "}
-          </p>
+          <Form.Group>
+            <Form.Label>Notizen</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder=" Notizen hier einfügen"
+              value={note2}
+              onChange={handleChange("note2")}
+            />
+          </Form.Group>
         </div>
 
-        <h3>Vorgesprächs-Frame</h3>
+        <p> <strong>Vorgesprächs-Frame </strong></p>
 
         <p>
-          "In diesem Gespräch geht es darum heraus zu finden welches Produkt
-          genau zu Ihren Ansprüchen passt, damit wir auch die optimale Lösung
-          für Sie auswählen können"
-        </p>
-
-        <h3>
-          Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist)
-        </h3>
-
-        <p>
-          "Anhand der Informationen, die Sie mir in diesem Gespräch mitgeben,
-          kann ich dann sehr genau einschätzen, wie wir Ihnen weiterhelfen
-          können und welches das passende produkt für Sie ist."
+          <i>
+            {" "}
+            "In diesem Gespräch geht es darum heraus zu finden welches Produkt
+            genau zu Ihren Ansprüchen passt, damit wir auch die optimale Lösung
+            für Sie auswählen können"
+          </i>
         </p>
 
         <p>
-          "Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
-          [Ja, abholen]
+        <strong> Experten-Frame (optional, wenn Kunde noch nicht ganz überzeugt ist) </strong>
+        </p>
+
+        <p>
+          <i>
+            "Anhand der Informationen, die Sie mir in diesem Gespräch mitgeben,
+            kann ich dann sehr genau einschätzen, wie wir Ihnen weiterhelfen
+            können und welches das passende produkt für Sie ist."
+          </i>
+        </p>
+
+        <p>
+          <i>
+            {" "}
+            "Deshalb stelle ich Ihnen nachfolgend ein paar Fragen, in Ordnung?"
+            [Ja, abholen]
+          </i>
         </p>
         <DropdownButton
           as={ButtonGroup}

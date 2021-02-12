@@ -1,7 +1,10 @@
-import React, { Component,DropdownButton,
+import React, { Component } from "react";
+import {
+  Container,
+  DropdownButton,
   Dropdown,
-  ButtonGroup, } from "react";
-
+  ButtonGroup,
+} from "react-bootstrap";
 export default class Conclusion extends Component {
   page = (number) => {
     this.props.goToStep(number);
@@ -24,7 +27,9 @@ export default class Conclusion extends Component {
       kind,
       email,
       newold,
-      company,
+      note1,
+      note2,
+      note3,
       question1,
       question2,
       question3,
@@ -47,7 +52,7 @@ export default class Conclusion extends Component {
         <p>Um was für eine Art Anruf handelt es sich?</p>
         <b>{kind}</b>
         <hr />
-        <br/>
+        <br />
         {newold === "new" && (
           <div>
             <p>Full Name : {name}</p>
@@ -55,31 +60,45 @@ export default class Conclusion extends Component {
             <p>Postion : {domain}</p>
             <p>Email Address : {email}</p>
             <p>Phone Number : {phone}</p>
+            <hr />
           </div>
         )}
-        <hr />
-        {newold === "new" && (
-          <div>
-            <p>Company Name : {company}</p>
-            <p>Contact Person : {contactperson}</p>
-          </div>
-        )}
-        <hr />
         <br />
         <h6>Einleitung</h6>
-        Sie haben sich bei uns gemeldet, um herauszufinden, ob Ihnen unsere
-        Dienstleistungen im Bereich Video weiterhelfen können, ist das richtig?
+        <p>
+          {" "}
+          Sie haben sich bei uns gemeldet, um herauszufinden, ob Ihnen unsere
+          Dienstleistungen im Bereich Video weiterhelfen können, ist das
+          richtig?
+        </p>
         <br />
         <b>{question1}</b>
         <br />
+        <hr />
         <h6>Ich habe mich icht beworben</h6>
-        "Ja, das kann ich gut verstehen, also wir sind "Musterfirma" eine
-        Filmproduktionsfirma aus "Ort" und haben uns auf die Medienberatung
-        spezialisiert. Ich lasse Ihnen nach dem Gespräch gerne noch einmal
-        unsere Website zukommen und im Fachgespräch lernen Sie uns dann richtig
-        kennen."
+        <p>
+          {" "}
+          "Ja, das kann ich gut verstehen, also wir sind "Musterfirma" eine
+          Filmproduktionsfirma aus "Ort" und haben uns auf die Medienberatung
+          spezialisiert. Ich lasse Ihnen nach dem Gespräch gerne noch einmal
+          unsere Website zukommen und im Fachgespräch lernen Sie uns dann
+          richtig kennen."
+        </p>
         <br />
         <b>{question2}</b>
+        <br />
+        <hr />
+        <p>
+          „Erzählen Sie mir doch bitte kurz in ein zwei Sätzen, was Sie vorhaben
+          und welches Ziel Sie mit Ihrem Film erreichen wollen?“
+        </p>
+        <br />
+        <b>{note1}</b>
+        <br />
+        <hr />
+        <p>„Welches der genannten Punkte ist für Sie am relevantesten?“</p>
+        <br />
+        <b>{note2}</b>
         <br />
         <hr />
         <h6>Fragen stellen</h6>
@@ -91,9 +110,11 @@ export default class Conclusion extends Component {
           Wenn nach diesen Behandlungen keine Aussage vom Kunden kommt oder das
           Budget zu niedrig ist:
         </h6>
-        "Wir haben in der Vergangenheit festgestellt, dass eine Investition
-        zwischen 3.900 EUR - 8.500 notwendig ist, um den von Ihnen beschriebenen
-        Film zu realisieren."
+        <p>
+          "Wir haben in der Vergangenheit festgestellt, dass eine Investition
+          zwischen 3.900 EUR - 8.500 notwendig ist, um den von Ihnen
+          beschriebenen Film zu realisieren."
+        </p>
         <br />
         <b>{question4}</b>
         <br />
@@ -113,19 +134,27 @@ export default class Conclusion extends Component {
         <br />
         <hr />
         <h6>Wenn dies nicht möglich ist, dann:</h6>
-        "Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an, die
-        bei einer Investitionssumme von 2.900 EUR liegt, ist das für Sie
-        möglich?"
+        <p>
+          "Zusätzlich bieten wir unseren Kunden noch eine Kompaktlösung an, die
+          bei einer Investitionssumme von 2.900 EUR liegt, ist das für Sie
+          möglich?"
+        </p>
         <br />
         <b>{question7}</b>
+        <br />
         <hr />
+        <p>Bitte Namen des potenziellen Interessenten angeben</p>
+        <br />
+        <b>{note3}</b>
+        <br />
         <hr />
-        <div>Task Name</div>
+        <p>Task Name</p>
         <b>{taskName}</b>
-        <div>Task Date</div>
+        <p>Task Date</p>
         <b>{taskDate}</b>
-        <div>Task description</div>
+        <p>Task description</p>
         <b>{taskDesc}</b>
+        <hr />
         <DropdownButton
           as={ButtonGroup}
           title="« Back"

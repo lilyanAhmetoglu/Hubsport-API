@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import {
   Container,
+  Form,
   DropdownButton,
   Dropdown,
   ButtonGroup,
@@ -21,23 +22,37 @@ class Page7 extends Component {
     this.props.prevStep();
   };
   render() {
+    const { note1, handleChange } = this.props;
     return (
       <Container>
         <h3>Unwissenheitsframe</h3>
         <p>
-          "Haben Sie ein paar Minuten, damit wir kurz über Ihren Film sprechen
-          können?" ["Ja"abholen]
+          <i>
+            {" "}
+            "Haben Sie ein paar Minuten, damit wir kurz über Ihren Film sprechen
+            können?" ["Ja"abholen]
+          </i>
         </p>
 
         <p>
           {" "}
-          "Erzählen Sie mir doch bitte kurz in ein zwei Sätzen, was Sie vorhaben
-          und welches Ziel Sie mit Ihrem Film erreichen wollen?"
+          <i>
+            {" "}
+            "Erzählen Sie mir doch bitte kurz in ein zwei Sätzen, was Sie
+            vorhaben und welches Ziel Sie mit Ihrem Film erreichen wollen?"
+          </i>
         </p>
         <div className="Notizen">
-          <p>
-            <strong>Notizen</strong>{" "}
-          </p>
+          <Form.Group>
+            <Form.Label>Notizen</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder=" Notizen hier einfügen"
+              value={note1}
+              onChange={handleChange("note1")}
+            />
+          </Form.Group>
         </div>
         <DropdownButton
           as={ButtonGroup}
