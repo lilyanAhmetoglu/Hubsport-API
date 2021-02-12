@@ -32,7 +32,7 @@ export default class Intorduction extends Component {
           „next“)
         </p>
         <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>1.Welches Unternehmen möchtest du anrufen?</Form.Label>
+          <Form.Label>Welches Unternehmen möchtest du anrufen?</Form.Label>
           <Form.Control
             as="select"
             value={company}
@@ -53,7 +53,7 @@ export default class Intorduction extends Component {
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label>
-          2.Welchen Ansprechpartner möchtest du kontaktieren? 
+          Welchen Ansprechpartner möchtest du kontaktieren? 
           </Form.Label>
           <Form.Control
             as="select"
